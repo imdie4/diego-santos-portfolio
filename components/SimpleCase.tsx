@@ -200,15 +200,17 @@ export function SimpleCase({ slug }: { slug: string }) {
                 </h3>
                 <div className="mt-4 flex flex-1 items-center">
                   <div className="grid w-full grid-cols-2 gap-4">
+                    {/* number above its label: both stats get exactly half
+                        the row, whatever the width of the number */}
                     {c.overview.impact.map((s) => (
-                      <div key={s.value} className="flex items-end gap-2">
+                      <div key={s.value} className="flex min-w-0 flex-col gap-2">
                         <span
                           className="text-4xl font-bold leading-none tracking-tight sm:text-5xl"
                           style={{ color: c.accent }}
                         >
                           {s.value}
                         </span>
-                        <span className="text-sm leading-tight" style={{ color: c.accent }}>
+                        <span className="text-sm leading-snug" style={{ color: c.accent }}>
                           {s.label}
                         </span>
                       </div>
