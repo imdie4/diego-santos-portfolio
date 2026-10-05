@@ -335,7 +335,15 @@ export const dict = {
   },
 } as const;
 
-type Dict = (typeof dict)["pt"];
+// `as const` makes every string a literal type, so "Home" wouldn't fit where
+// "Início" is expected. Widen the leaves to `string` and keep the shape: both
+// languages must still have exactly the same keys.
+type Widen<T> = T extends string
+  ? string
+  : T extends readonly (infer U)[]
+    ? readonly Widen<U>[]
+    : { readonly [K in keyof T]: Widen<T[K]> };
+type Dict = Widen<(typeof dict)["pt"]>;
 
 interface LangContextValue {
   lang: Lang;
