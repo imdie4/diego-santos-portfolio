@@ -59,8 +59,8 @@ export const ecotrack: SimpleCaseData = {
     solution:
       "App iOS que transforma dados ambientais em decisões estratégicas, conectando monitoramento, benchmarking e certificações em um único lugar.",
     impact: [
-      { value: "60%", label: "de aprovação entre os empresários testados" },
-      { value: "10", label: "empresários testaram o protótipo" },
+      { value: "60%", label: "de aprovação nos testes" },
+      { value: "10", label: "empresários testados" },
     ],
     image: { alt: "Visão geral da solução" },
   },
@@ -215,8 +215,8 @@ export const chegaJunto: SimpleCaseData = {
     solution:
       "A Trilha de Apoio à Empregabilidade: formação estruturada e uma plataforma digital que conecta aprendizado, acompanhamento e vagas, tornando o progresso visível.",
     impact: [
-      { value: "3º", label: "lugar no desafio ESG do SEBRAE/PE" },
-      { value: "87%", label: "dos moradores testados participariam da trilha" },
+      { value: "3º", label: "lugar no desafio ESG" },
+      { value: "87%", label: "participariam da trilha" },
     ],
   },
   sections: [

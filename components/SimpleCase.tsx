@@ -115,6 +115,12 @@ export function SimpleCase({ slug }: { slug: string }) {
     return next + s.blocks.filter((b) => b.type === "img").length;
   }, c.overview.image ? 2 : 1);
 
+  // longest impact value, used to give every number the same slot width
+  const widestImpact = c.overview.impact.reduce(
+    (w, s) => (s.value.length > w.length ? s.value : w),
+    ""
+  );
+
   const toc = [
     { id: "sec-overview", label: "Overview" },
     ...c.sections.map((s) => ({ id: s.id, label: s.toc })),
@@ -200,17 +206,21 @@ export function SimpleCase({ slug }: { slug: string }) {
                 </h3>
                 <div className="mt-4 flex flex-1 items-center">
                   <div className="grid w-full grid-cols-2 gap-4">
-                    {/* number above its label: both stats get exactly half
-                        the row, whatever the width of the number */}
+                    {/* Lino layout (number beside its label). The number slot
+                        is as wide as the widest value in both items, so the
+                        labels start at the same point and wrap the same. */}
                     {c.overview.impact.map((s) => (
-                      <div key={s.value} className="flex min-w-0 flex-col gap-2">
+                      <div key={s.value} className="flex min-w-0 items-end gap-2">
                         <span
-                          className="text-4xl font-bold leading-none tracking-tight sm:text-5xl"
+                          className="grid shrink-0 text-4xl font-bold leading-none tracking-tight sm:text-5xl"
                           style={{ color: c.accent }}
                         >
-                          {s.value}
+                          <span className="[grid-area:1/1]">{s.value}</span>
+                          <span aria-hidden className="invisible [grid-area:1/1]">
+                            {widestImpact}
+                          </span>
                         </span>
-                        <span className="text-sm leading-snug" style={{ color: c.accent }}>
+                        <span className="text-sm leading-tight" style={{ color: c.accent }}>
                           {s.label}
                         </span>
                       </div>
