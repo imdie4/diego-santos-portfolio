@@ -209,7 +209,10 @@ export function SimpleCase({ slug }: { slug: string }) {
                     >
                       {s.value}
                     </span>
-                    <span className="text-sm leading-tight" style={{ color: c.accent }}>
+                    <span
+                      className="whitespace-pre-line text-sm leading-tight"
+                      style={{ color: c.accent }}
+                    >
                       {s.label}
                     </span>
                   </div>
