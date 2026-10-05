@@ -1,0 +1,380 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-canvas text-neutral-900 antialiased;
+  cursor: url("/img/cursor.svg") 3 3, auto;
+  cursor: -webkit-image-set(
+      url("/img/cursor.svg") 1x,
+      url("/img/cursor@2x.svg") 2x,
+      url("/img/cursor@3x.svg") 3x
+    )
+    3 3, auto;
+  cursor: image-set(
+      url("/img/cursor.svg") 1x,
+      url("/img/cursor@2x.svg") 2x,
+      url("/img/cursor@3x.svg") 3x
+    )
+    3 3, auto;
+}
+
+::selection {
+  @apply bg-figma-blue/30;
+}
+
+/* Live-comment bubble (Figma-style) pop-in + typing caret */
+@keyframes comment-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-comment {
+  animation: comment-pop 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-origin: top left;
+}
+
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.comment-caret {
+  animation: caret-blink 900ms steps(1) infinite;
+}
+
+/* Figma-style canvas grid, identical everywhere it's used */
+.canvas-grid {
+  background-color: #f3f4f6;
+  background-image:
+    linear-gradient(to right, rgba(96, 125, 180, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(96, 125, 180, 0.12) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+
+/* Hero entrance: texts rise in, stickers pop in. Stagger with --delay. */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes hero-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6) rotate(-6deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+.hero-rise {
+  animation: hero-rise 700ms cubic-bezier(0.2, 0.8, 0.2, 1) var(--delay, 0ms) both;
+}
+
+.hero-pop {
+  animation: hero-pop 600ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--delay, 0ms) both;
+}
+
+.hero-fade {
+  animation: hero-fade 600ms ease-out both;
+}
+
+/* Projects reveal (home only): each card lands like a frame placed on the
+   canvas. Rises in, its cover settles from a slight zoom, the tags pop in one
+   by one, and a Figma selection outline blinks off once it is placed. */
+@keyframes proj-rise {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes proj-cover {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes proj-select {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  25%,
+  60% {
+    opacity: 1;
+  }
+}
+
+.projects-reveal .proj-head:not([data-inview]),
+.projects-reveal .proj-card:not([data-inview]) {
+  opacity: 0;
+}
+
+.projects-reveal .proj-head[data-inview] {
+  animation: hero-rise 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.projects-reveal .proj-card[data-inview] {
+  animation: proj-rise 800ms cubic-bezier(0.2, 0.8, 0.2, 1) var(--delay) both;
+}
+
+.projects-reveal .proj-card[data-inview] .card-cover {
+  animation: proj-cover 1400ms cubic-bezier(0.2, 0.8, 0.2, 1) var(--delay) both;
+}
+
+.projects-reveal .proj-card[data-inview] .card-tag {
+  animation: hero-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.projects-reveal .proj-card[data-inview] .card-tag:nth-child(1) {
+  animation-delay: calc(var(--delay) + 450ms);
+}
+.projects-reveal .proj-card[data-inview] .card-tag:nth-child(2) {
+  animation-delay: calc(var(--delay) + 530ms);
+}
+.projects-reveal .proj-card[data-inview] .card-tag:nth-child(3) {
+  animation-delay: calc(var(--delay) + 610ms);
+}
+
+.projects-reveal .proj-card::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 2px solid #0c8ce9;
+  border-radius: 22px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.projects-reveal .proj-card[data-inview]::after {
+  animation: proj-select 1200ms ease-out calc(var(--delay) + 250ms) both;
+}
+
+/* About intro reveal (same vocabulary as the hero and the project cards). */
+.about-head:not([data-inview]),
+.about-intro:not([data-inview]) :is(.ai-rise, .ai-pop, .about-handle) {
+  opacity: 0;
+}
+
+.about-head[data-inview] {
+  animation: hero-rise 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.about-intro[data-inview] .ai-rise {
+  animation: hero-rise 800ms cubic-bezier(0.2, 0.8, 0.2, 1) var(--delay) both;
+}
+
+.about-intro[data-inview] .ai-photo {
+  animation: proj-cover 1400ms cubic-bezier(0.2, 0.8, 0.2, 1) var(--delay) both;
+}
+
+.about-intro[data-inview] .ai-pop {
+  animation: hero-pop 600ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--delay) both;
+}
+
+/* the four selection handles snap on one after another once the frame lands */
+.about-intro[data-inview] .about-handle {
+  animation: hero-pop 450ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.about-intro[data-inview] .about-handle:nth-child(1) { animation-delay: 450ms; }
+.about-intro[data-inview] .about-handle:nth-child(2) { animation-delay: 520ms; }
+.about-intro[data-inview] .about-handle:nth-child(3) { animation-delay: 590ms; }
+.about-intro[data-inview] .about-handle:nth-child(4) { animation-delay: 660ms; }
+
+/* Generic scroll reveal for the rest of the home page. A `.reveal` group gets
+   `data-inview` (useReveal); its `.rv-*` children (or the group itself) then
+   play. `--delay` staggers items; `--sub` offsets a child from its item. */
+@keyframes rv-left {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+}
+
+@keyframes rv-right {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+}
+
+@keyframes rv-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* a Figma panel opening */
+@keyframes rv-panel {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+  }
+}
+
+/* a chat message arriving */
+@keyframes rv-msg {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.9);
+  }
+}
+
+/* a seal being stamped */
+@keyframes rv-stamp {
+  0% {
+    opacity: 0;
+    transform: scale(1.7) rotate(-14deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.9) rotate(3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal:not([data-inview]):is(.rv-rise, .rv-pop, .rv-left, .rv-right, .rv-fade, .rv-panel, .rv-msg, .rv-stamp),
+.reveal:not([data-inview]) :is(.rv-rise, .rv-pop, .rv-left, .rv-right, .rv-fade, .rv-panel, .rv-msg, .rv-stamp) {
+  opacity: 0;
+}
+
+.reveal[data-inview] {
+  --rv-at: calc(var(--delay, 0ms) + var(--sub, 0ms));
+}
+.reveal[data-inview] * {
+  --rv-at: calc(var(--delay, 0ms) + var(--sub, 0ms));
+}
+
+.reveal[data-inview]:is(.rv-rise),
+.reveal[data-inview] .rv-rise {
+  animation: hero-rise 700ms cubic-bezier(0.2, 0.8, 0.2, 1) var(--rv-at) both;
+}
+.reveal[data-inview]:is(.rv-pop),
+.reveal[data-inview] .rv-pop {
+  animation: hero-pop 550ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--rv-at) both;
+}
+.reveal[data-inview]:is(.rv-left),
+.reveal[data-inview] .rv-left {
+  animation: rv-left 700ms cubic-bezier(0.2, 0.8, 0.2, 1) var(--rv-at) both;
+}
+.reveal[data-inview]:is(.rv-right),
+.reveal[data-inview] .rv-right {
+  animation: rv-right 700ms cubic-bezier(0.2, 0.8, 0.2, 1) var(--rv-at) both;
+}
+.reveal[data-inview]:is(.rv-fade),
+.reveal[data-inview] .rv-fade {
+  animation: rv-fade 1000ms ease-out var(--rv-at) both;
+}
+.reveal[data-inview]:is(.rv-panel),
+.reveal[data-inview] .rv-panel {
+  animation: rv-panel 800ms cubic-bezier(0.2, 0.8, 0.2, 1) var(--rv-at) both;
+}
+.reveal[data-inview]:is(.rv-msg),
+.reveal[data-inview] .rv-msg {
+  animation: rv-msg 450ms cubic-bezier(0.34, 1.4, 0.64, 1) var(--rv-at) both;
+}
+.reveal[data-inview]:is(.rv-stamp),
+.reveal[data-inview] .rv-stamp {
+  animation: rv-stamp 650ms cubic-bezier(0.2, 0.8, 0.2, 1) var(--rv-at) both;
+}
+
+/* Contact canvas: multiplayer cursors drift around like someone's there. */
+@keyframes cursor-drift-a {
+  0%, 100% { transform: translate(0, 0); }
+  35% { transform: translate(-14px, 10px); }
+  70% { transform: translate(8px, -6px); }
+}
+@keyframes cursor-drift-b {
+  0%, 100% { transform: translate(0, 0); }
+  40% { transform: translate(18px, -8px); }
+  75% { transform: translate(6px, 8px); }
+}
+.cursor-drift-a { animation: cursor-drift-a 7s ease-in-out infinite; }
+.cursor-drift-b { animation: cursor-drift-b 8s ease-in-out infinite; }
+
+/* Case studies: pieces rise in as they scroll into view (useAutoReveal).
+   Only the start state is filled (`backwards`), so once it ends the element
+   is left exactly as it was: no lingering transform or stacking context. */
+@keyframes auto-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+.auto-rv:not([data-inview]) {
+  opacity: 0;
+}
+.auto-rv[data-inview] {
+  animation: auto-rise 750ms cubic-bezier(0.2, 0.8, 0.2, 1) var(--delay, 0ms) backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise,
+  .hero-pop,
+  .hero-fade,
+  .projects-reveal .proj-head,
+  .projects-reveal .proj-card,
+  .projects-reveal .proj-card .card-cover,
+  .projects-reveal .proj-card .card-tag,
+  .projects-reveal .proj-card::after,
+  .about-head,
+  .about-intro :is(.ai-rise, .ai-pop, .ai-photo, .about-handle),
+  .reveal,
+  .reveal *,
+  .cursor-drift-a,
+  .cursor-drift-b,
+  .auto-rv {
+    animation: none !important;
+  }
+  .projects-reveal .proj-head,
+  .projects-reveal .proj-card,
+  .about-head,
+  .about-intro :is(.ai-rise, .ai-pop, .about-handle),
+  .reveal:is(.rv-rise, .rv-pop, .rv-left, .rv-right, .rv-fade, .rv-panel, .rv-msg, .rv-stamp),
+  .reveal :is(.rv-rise, .rv-pop, .rv-left, .rv-right, .rv-fade, .rv-panel, .rv-msg, .rv-stamp),
+  .auto-rv {
+    opacity: 1 !important;
+  }
+}
