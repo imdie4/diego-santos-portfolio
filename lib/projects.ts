@@ -9,6 +9,6 @@ export interface ProjectMeta {
 /** Order matches `projects.items` in the i18n dictionary. */
 export const projects: ProjectMeta[] = [
   { slug: "lino", cover: "/img/projects/lino.png", color: "#2F62E8", href: "/cases/lino", tags: ["Mobile", "UX/UI", "Product Design"] },
-  { slug: "chega-junto", cover: "/img/projects/chega-junto.png", color: "#4B2FC7", tags: ["Web", "UX/UI", "Service Design"] },
+  { slug: "chega-junto", cover: "/img/projects/chega-junto.png", color: "#4B2FC7", href: "/cases/chega-junto", tags: ["Web", "UX/UI", "Service Design"] },
   { slug: "ecotrack", cover: "/img/projects/ecotrack.png", color: "#8FB63C", href: "/cases/ecotrack", tags: ["Mobile", "UX/UI", "Product Design"] },
 ];
