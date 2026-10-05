@@ -115,12 +115,6 @@ export function SimpleCase({ slug }: { slug: string }) {
     return next + s.blocks.filter((b) => b.type === "img").length;
   }, c.overview.image ? 2 : 1);
 
-  // longest impact value, used to give every number the same slot width
-  const widestImpact = c.overview.impact.reduce(
-    (w, s) => (s.value.length > w.length ? s.value : w),
-    ""
-  );
-
   const toc = [
     { id: "sec-overview", label: "Overview" },
     ...c.sections.map((s) => ({ id: s.id, label: s.toc })),
@@ -173,7 +167,9 @@ export function SimpleCase({ slug }: { slug: string }) {
 
         {/* OVERVIEW — same layout as the Lino case */}
         <Block label="Overview" icon="overview" id="sec-overview">
-          <div className="grid gap-6 lg:grid-cols-2">
+          {/* Problema and Solução share the first row, so their boxes always
+              have the same height; Impacto sits under Solução. */}
+          <div className="grid gap-x-6 gap-y-6 lg:grid-cols-2">
             <div className="flex flex-col">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-neutral-900">
                 Problema
@@ -190,43 +186,34 @@ export function SimpleCase({ slug }: { slug: string }) {
               </div>
             </div>
 
-            <div className="flex flex-col gap-6">
-              <div>
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-neutral-900">
-                  Solução
-                </h3>
-                <div className="mt-4 rounded-2xl bg-emerald-50 p-5 text-neutral-800 ring-1 ring-emerald-200">
-                  {c.overview.solution}
-                </div>
+            <div className="flex flex-col">
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-neutral-900">
+                Solução
+              </h3>
+              <div className="mt-4 flex flex-1 items-center rounded-2xl bg-emerald-50 p-5 text-neutral-800 ring-1 ring-emerald-200">
+                {c.overview.solution}
               </div>
+            </div>
 
-              <div className="flex flex-1 flex-col">
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-neutral-900">
-                  Impacto
-                </h3>
-                <div className="mt-4 flex flex-1 items-center">
-                  <div className="grid w-full grid-cols-2 gap-4">
-                    {/* Lino layout (number beside its label). The number slot
-                        is as wide as the widest value in both items, so the
-                        labels start at the same point and wrap the same. */}
-                    {c.overview.impact.map((s) => (
-                      <div key={s.value} className="flex min-w-0 items-end gap-2">
-                        <span
-                          className="grid shrink-0 text-4xl font-bold leading-none tracking-tight sm:text-5xl"
-                          style={{ color: c.accent }}
-                        >
-                          <span className="[grid-area:1/1]">{s.value}</span>
-                          <span aria-hidden className="invisible [grid-area:1/1]">
-                            {widestImpact}
-                          </span>
-                        </span>
-                        <span className="text-sm leading-tight" style={{ color: c.accent }}>
-                          {s.label}
-                        </span>
-                      </div>
-                    ))}
+            <div className="lg:col-start-2">
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-neutral-900">
+                Impacto
+              </h3>
+              {/* same as the Lino: number with its label right beside it */}
+              <div className="mt-4 grid w-full grid-cols-2 gap-4">
+                {c.overview.impact.map((s) => (
+                  <div key={s.value} className="flex min-w-0 items-end gap-2">
+                    <span
+                      className="shrink-0 text-4xl font-bold leading-none tracking-tight sm:text-5xl"
+                      style={{ color: c.accent }}
+                    >
+                      {s.value}
+                    </span>
+                    <span className="text-sm leading-tight" style={{ color: c.accent }}>
+                      {s.label}
+                    </span>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
