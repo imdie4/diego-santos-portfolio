@@ -107,13 +107,13 @@ export function SimpleCase({ slug }: { slug: string }) {
     .map((p, i) => ({ ...p, title: t.projects.items[i] }))
     .filter((p) => p.slug !== slug);
 
-  // Images are numbered in page order (the overview's is 1), so they can be
-  // sent by number. firstImage[i] = number of section i's first image.
+  // Images are numbered in page order (the overview's, when there is one, is
+  // 1), so they can be sent by number. firstImage[i] = section i's first.
   const firstImage: number[] = [];
   c.sections.reduce((next, s) => {
     firstImage.push(next);
     return next + s.blocks.filter((b) => b.type === "img").length;
-  }, 2);
+  }, c.overview.image ? 2 : 1);
 
   const toc = [
     { id: "sec-overview", label: "Overview" },
@@ -219,9 +219,11 @@ export function SimpleCase({ slug }: { slug: string }) {
             </div>
           </div>
 
-          <div className="mt-10">
-            <CaseFigure image={c.overview.image} n={1} />
-          </div>
+          {c.overview.image && (
+            <div className="mt-10">
+              <CaseFigure image={c.overview.image} n={1} />
+            </div>
+          )}
         </Block>
 
         {/* the old portfolio's sections, in their original order */}

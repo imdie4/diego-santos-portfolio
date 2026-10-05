@@ -30,8 +30,8 @@ export type SimpleCaseData = {
     problem: string[];
     solution: string;
     impact: { value: string; label: string }[];
-    /** the image the old page showed right after Problema/Solução */
-    image: CaseImage;
+    /** the image the old page showed right after Problema/Solução (optional) */
+    image?: CaseImage;
   };
   sections: SimpleSection[];
 };
@@ -189,11 +189,18 @@ export const ecotrack: SimpleCaseData = {
   ],
 };
 
+const CJ = "/img/cases/chega-junto";
+/** Chega Junto images: all exported at 1880×960. */
+const cj = (file: string, alt: string): ContentBlock => ({
+  type: "img",
+  image: { src: `${CJ}/${file}`, alt, width: 1880, height: 960 },
+});
+
 export const chegaJunto: SimpleCaseData = {
   slug: "chega-junto",
   accent: "#4B2FC7",
   subtitle:
-    "Chega Junto Tabaiares é uma solução criada para aproximar o SEBRAE/PE da comunidade Caranguejo Tabaiares, estruturando uma jornada de capacitação conectada a oportunidades reais de trabalho. O projeto conquistou 3º lugar em desafio interno de ESG do Sebrae.",
+    "Uma trilha de empregabilidade que aproxima o SEBRAE/PE da comunidade Caranguejo Tabaiares e liga capacitação a vagas reais.",
   meta: [
     { label: "Papel", value: "Product Designer" },
     { label: "Duração", value: "2 meses" },
@@ -203,15 +210,14 @@ export const chegaJunto: SimpleCaseData = {
   cover: { src: "/img/projects/chega-junto.png", alt: "Telas do Chega Junto", width: 1600, height: 800 },
   overview: {
     problem: [
-      "O desafio de ESG do SEBRAE exigia ações sociais estruturadas, mas 80% dos moradores da Comunidade Caranguejo Tabaiares nunca se sentiram à vontade para entrar na instituição que ficava ao lado de suas casas.",
+      "O desafio de ESG pedia ações sociais estruturadas. Mas 80% dos moradores da comunidade ao lado nunca se sentiram à vontade para entrar na instituição.",
     ],
     solution:
-      "Criação da Trilha de Apoio à Empregabilidade, combinando formação estruturada com uma plataforma digital que conecta aprendizado, acompanhamento e acesso a vagas, reduzindo barreiras e tornando o progresso visível.",
+      "A Trilha de Apoio à Empregabilidade: formação estruturada e uma plataforma digital que conecta aprendizado, acompanhamento e vagas, tornando o progresso visível.",
     impact: [
       { value: "3º", label: "lugar no desafio ESG do SEBRAE/PE" },
       { value: "87%", label: "dos moradores testados participariam da trilha" },
     ],
-    image: { alt: "Visão geral da solução" },
   },
   sections: [
     {
@@ -219,9 +225,8 @@ export const chegaJunto: SimpleCaseData = {
       toc: "Processo",
       title: "Processo de Design",
       blocks: [
-        p("Conduzi o projeto ao longo de 8 semanas seguindo o Double Diamond, estruturando o processo em duas fases distintas: primeiro expandir o entendimento do problema por meio de pesquisa interna e entrevistas com a comunidade, depois convergir para uma solução viável dentro das restrições institucionais do SEBRAE."),
-        p("Cada fase produziu uma entrega validada antes de avançar."),
-        img("Processo de design (Double Diamond)"),
+        p("Conduzi o projeto em 8 semanas, com Double Diamond. Primeiro abri o entendimento do problema com pesquisa interna e entrevistas, depois convergi para uma solução viável dentro das restrições do SEBRAE. Cada fase terminou com uma entrega validada."),
+        cj("processo-double-diamond.png", "Cronograma de 8 semanas no Double Diamond: Discovery, Define, Develop e Delivery"),
       ],
     },
     {
@@ -229,9 +234,8 @@ export const chegaJunto: SimpleCaseData = {
       toc: "Desafio",
       title: "Entendendo o desafio",
       blocks: [
-        p("O projeto nasceu de um desafio de ESG proposto pelo SEBRAE/PE para estagiários: identificar oportunidades de integração entre a instituição e a comunidade do entorno dentro da estratégia de Environment, Social and Governance. Após analisar o cenário interno, escolhi trabalhar com a integração da Comunidade Caranguejo Tabaiares, uma comunidade de baixa renda localizada no entorno imediato do SEBRAE/PE em Recife."),
-        p("O diagnóstico interno revelou dois problemas centrais: as ações sociais existentes eram pontuais e sem continuidade, e não havia nenhuma iniciativa estruturada de aproximação com os moradores. O SEBRAE tinha infraestrutura e conteúdo, mas nenhum canal que conectasse isso à comunidade ao lado."),
-        img("Diagnóstico interno"),
+        p("O desafio era dos estagiários: integrar a instituição ao entorno, dentro de ESG. Escolhi a Comunidade Caranguejo Tabaiares, vizinha imediata do SEBRAE. O diagnóstico interno mostrou ações sociais pontuais e nenhuma iniciativa estruturada de aproximação: havia infraestrutura e conteúdo, mas nenhum canal até quem morava ao lado."),
+        cj("desafio-diagnostico.png", "Desafio ESG escolhido, diagnóstico interno e entrevistas no SEBRAE"),
       ],
     },
     {
@@ -239,15 +243,8 @@ export const chegaJunto: SimpleCaseData = {
       toc: "Pesquisa",
       title: "Ouvindo a Comunidade",
       blocks: [
-        p("Fui a campo na Comunidade Caranguejo Tabaiares e conduzi entrevistas com 10 pequenos empreendedores, 12 moradores e 6 funcionários do SEBRAE/PE. Os dados revelaram uma barreira que não era de acesso físico, era de percepção."),
-        p("A frase que mais se repetiu nas entrevistas foi: \"A gente passa na frente do SEBRAE, mas parece que não é um lugar feito pra gente.\" Essa percepção definiu o problema central e apontou três oportunidades claras:"),
-        list(
-          "**Reduzir a barreira percebida:** criar um programa com identidade própria, separada da marca institucional do SEBRAE.",
-          "**Gerar pertencimento desde o primeiro contato:** nome, comunicação e tom precisavam sinalizar que o programa era feito para aquela comunidade especificamente.",
-          "**Conectar capacitação a oportunidade concreta:** engajamento sustentado só se mantém quando o participante vê para onde o aprendizado leva.",
-        ),
-        p("Essas três oportunidades nortearam todas as decisões seguintes de produto e comunicação."),
-        img("Pesquisa com a comunidade"),
+        p("Entrevistei 10 pequenos empreendedores, 12 moradores e 6 funcionários. A barreira não era de acesso, era de percepção. A frase mais repetida: \"A gente passa na frente do SEBRAE, mas parece que não é um lugar feito pra gente.\" Isso apontou três direções: um programa com identidade própria, separada da marca institucional, pertencimento desde o primeiro contato e capacitação ligada a oportunidade concreta."),
+        cj("pesquisa-comunidade.png", "Entrevistados na Comunidade Caranguejo Tabaiares e principais números da pesquisa"),
       ],
     },
     {
@@ -255,9 +252,8 @@ export const chegaJunto: SimpleCaseData = {
       toc: "Persona",
       title: "Definição de Público e Comportamento",
       blocks: [
-        p("Construí a persona do José Carlos, 25 anos, morador da Caranguejo Tabaiares, estudante e vendedor informal de lanches. Ele quer melhorar a renda da família e encontrar oportunidades de trabalho, mas acredita que o SEBRAE é exclusivo para empresários formalizados e não se sente à vontade para buscar ajuda lá."),
-        p("José Carlos não tem problema de motivação. Ele tem problema de pertencimento. Essa distinção foi central para as decisões de produto: o programa precisava ir até ele, não esperar que ele chegasse até o SEBRAE."),
-        img("Persona José Carlos"),
+        p("Criei o José Carlos, 25 anos, vendedor informal de lanches, que acha que o SEBRAE é só para empresários formalizados. Ele não tem problema de motivação, tem de pertencimento. Por isso decidi que o programa precisava ir até ele, não esperar que ele chegasse."),
+        cj("persona-jose-carlos.webp", "Persona José Carlos, 25 anos, com objetivos e dores"),
       ],
     },
     {
@@ -265,15 +261,8 @@ export const chegaJunto: SimpleCaseData = {
       toc: "Trilha",
       title: "Concepção da Trilha de Apoio à Empregabilidade",
       blocks: [
-        p("Com base nos dados de pesquisa, defini que a solução precisava atender três condições simultaneamente:"),
-        list(
-          "Ser gratuita;",
-          "Usar conteúdo já existente no SEBRAE para viabilizar o custo;",
-          "Criar uma estrutura de acompanhamento que gerasse pertencimento ao longo do tempo, não apenas um evento pontual.",
-        ),
-        p("A resposta foi a Trilha de Apoio à Empregabilidade Chega Junto: um programa de 2 meses com encontros regulares de cursos, palestras e oficinas, exclusivo para moradores da Caranguejo Tabaiares, com certificação ao final e conexão direta com vagas de empresas parceiras do SEBRAE. Duas turmas por ano."),
-        p("A decisão de usar produtos já existentes no SEBRAE foi estratégica e reduziu o custo de implementação e tornou a proposta viável institucionalmente. O design não criou conteúdo novo; criou uma jornada nova para conteúdo que já existia."),
-        img("Trilha de Apoio à Empregabilidade"),
+        p("Defini três condições: ser gratuita, usar conteúdo que o SEBRAE já tinha e gerar pertencimento ao longo do tempo. O resultado foi um programa de 2 meses com cursos, palestras e oficinas, exclusivo para moradores, com certificado e conexão com vagas parceiras. Reaproveitar o conteúdo foi a decisão que tornou a proposta viável: o design criou uma jornada nova, não conteúdo novo."),
+        cj("trilha-solucao.webp", "Solução desenvolvida e os cursos da Trilha de Apoio à Empregabilidade"),
       ],
     },
     {
@@ -281,16 +270,8 @@ export const chegaJunto: SimpleCaseData = {
       toc: "Entrada",
       title: "Landing Page: fluxo de entrada e engajamento",
       blocks: [
-        p("O maior risco do programa era a inscrição: se a landing page parecesse burocrática ou institucional demais, reproduziria exatamente a barreira que a pesquisa identificou."),
-        p("Estruturei o fluxo para reduzir esse atrito progressivamente:"),
-        list(
-          "O header apresenta o programa com um CTA imediato para quem já quer se inscrever;",
-          "Seguido pelos três benefícios principais que contextualizam o valor antes de qualquer detalhe;",
-          "A trilha é apresentada em seguida;",
-          "Os depoimentos aparecem para construir credibilidade;",
-          "Um segundo CTA fecha a página, garantindo que o usuário tenha sempre uma saída clara independente de onde parou de ler.",
-        ),
-        img("Fluxo da landing page"),
+        p("O maior risco era a inscrição: uma página institucional demais reproduziria a barreira. Estruturei a página para reduzir o atrito aos poucos, com CTA imediato, benefícios antes de qualquer detalhe, depoimentos para credibilidade e um segundo CTA no fim."),
+        cj("fluxo-landing-page.png", "Fluxo da landing page: header, benefícios, detalhes da trilha, depoimentos e detalhes do projeto"),
       ],
     },
     {
@@ -298,13 +279,8 @@ export const chegaJunto: SimpleCaseData = {
       toc: "Fluxo",
       title: "Fluxo da experiência do participante",
       blocks: [
-        p("Após a inscrição, projetei a plataforma interna em dois núcleos com propósitos distintos."),
-        list(
-          "**Encontros** centraliza a jornada de aprendizado: próximo encontro com data, horário e material para download, informação de faltas com alerta visual, trilha completa e perfil comportamental.",
-          "**Vagas** ativa o objetivo final do programa: banco de talentos com pesquisa, lista de vagas parceiras, vagas já aplicadas e canal de dúvidas.",
-        ),
-        p("A separação foi intencional. Misturar aprendizado e busca de emprego na mesma navegação criaria confusão sobre o objetivo de cada sessão de uso."),
-        img("Fluxo da plataforma"),
+        p("A plataforma tem dois núcleos: Encontros, para o aprendizado, e Vagas, para o objetivo final. Separei de propósito, porque misturar os dois confundiria o objetivo de cada acesso."),
+        cj("arquitetura-plataforma.png", "Arquitetura da plataforma, com os núcleos Encontros e Vagas"),
       ],
     },
     {
@@ -312,10 +288,8 @@ export const chegaJunto: SimpleCaseData = {
       toc: "Wireframes",
       title: "Wireframing",
       blocks: [
-        p("Antes do refinamento visual, validei hierarquia e fluxo nas duas superfícies principais: landing page e plataforma interna."),
-        p("O ajuste mais crítico foi na home da plataforma: na primeira versão, o próximo encontro e as vagas competiam pela atenção visual. Ao reorganizar, priorizei claramente o encontro na parte superior, porque sem completar a trilha o participante não acessa o banco de talentos."),
-        img("Wireframes da landing page"),
-        img("Wireframes da plataforma"),
+        p("Na primeira versão da home, o próximo encontro e as vagas disputavam atenção. Priorizei o encontro no topo, já que sem completar a trilha o participante não chega ao banco de talentos."),
+        cj("wireframes.png", "Wireframes da landing page e da plataforma"),
       ],
     },
     {
@@ -323,10 +297,9 @@ export const chegaJunto: SimpleCaseData = {
       toc: "Visual",
       title: "Style Guide",
       blocks: [
-        p("Trabalhei dentro da identidade visual institucional do SEBRAE, usando a tipografia Campuni e a paleta já estabelecida."),
-        p("Dentro dessas restrições, priorizei o azul mais saturado como cor estrutural: navegação, ações primárias e elementos de destaque. E o rosa mais saturado para elementos de engajamento, criando contraste suficiente para guiar a atenção sem sair da marca."),
-        p("Trabalhar dentro de uma identidade existente foi um exercício muito importante: o desafio não era criar um sistema, mas tomar as melhores decisões dentro das restrições impostas."),
-        img("Style guide"),
+        p("Trabalhei dentro da marca do SEBRAE, com a tipografia Campuni e a paleta existente. Usei o azul mais saturado para estrutura e ações primárias, e o rosa mais saturado para engajamento. O desafio era decidir bem dentro de um espaço menor, não criar um sistema."),
+        cj("style-guide-tipografia.png", "Tipografia Campuni e escala tipográfica"),
+        cj("style-guide-cores-componentes.png", "Paleta de cores e componentes da interface"),
       ],
     },
     {
@@ -334,10 +307,8 @@ export const chegaJunto: SimpleCaseData = {
       toc: "Landing",
       title: "Protótipo: Landing Page",
       blocks: [
-        p("A landing page traduz a estratégia de redução de barreira em experiência visual."),
-        p("O tom é direto e acolhedor: \"Chega Junto\" como nome do programa já comunica pertencimento antes de qualquer texto explicativo."),
-        p("Os três benefícios principais aparecem em destaque logo após o hero, e os depoimentos de participantes constroem credibilidade antes do usuário chegar ao CTA."),
-        img("Protótipo da landing page"),
+        p("Tom direto e acolhedor. O nome \"Chega Junto\" já comunica pertencimento antes de qualquer texto, e os benefícios aparecem logo depois do hero."),
+        cj("prototipo-landing-page.webp", "Protótipo da landing page do Chega Junto"),
       ],
     },
     {
@@ -345,10 +316,8 @@ export const chegaJunto: SimpleCaseData = {
       toc: "Plataforma",
       title: "Protótipo: Área do Aluno",
       blocks: [
-        p("A plataforma acompanha o participante do primeiro ao último encontro."),
-        p("A home exibe sempre o próximo encontro com todas as informações necessárias para comparecer, o contador de faltas com alerta visual e o progresso na trilha."),
-        p("Ao concluir, o certificado fica disponível para download e o acesso ao banco de vagas é desbloqueado, conectando aprendizado a oportunidade de forma sequencial e clara."),
-        img("Protótipo da área do aluno"),
+        p("A home mostra o próximo encontro, as faltas com alerta visual e o progresso na trilha. Ao concluir, o certificado fica disponível e o banco de vagas é desbloqueado, ligando aprendizado a oportunidade de forma sequencial."),
+        cj("prototipo-area-do-aluno.webp", "Protótipo da área do aluno: home de Encontros e banco de Vagas"),
       ],
     },
     {
@@ -356,15 +325,8 @@ export const chegaJunto: SimpleCaseData = {
       toc: "Resultados",
       title: "Resultados e validação",
       blocks: [
-        p("A proposta foi apresentada no desafio ESG do SEBRAE/PE e conquistou 3º lugar entre todas as equipes participantes. Validação externa que confirmou a viabilidade e relevância da solução dentro do contexto institucional."),
-        p("Para avaliar a proposta antes da apresentação, conduzi testes com 8 moradores da comunidade usando o protótipo interativo. Os resultados indicaram forte receptividade ao formato e ao posicionamento do programa:"),
-        list(
-          "**87%** afirmaram que participariam da trilha se ela fosse oferecida gratuitamente;",
-          "**75%** disseram que o nome e a comunicação visual os faziam sentir que o programa era \"para eles\";",
-          "**90%** consideraram a plataforma fácil de usar na primeira interação, sem nenhuma instrução prévia.",
-        ),
-        p("O achado mais relevante foi sobre o nome: \"Chega Junto\" teve reação positiva imediata em todas as sessões de teste. Os participantes associaram o nome a acolhimento antes mesmo de ler qualquer descrição do programa."),
-        img("Resultados"),
+        p("A proposta ficou em 3º lugar entre todas as equipes. Antes da apresentação, testei o protótipo com 8 moradores, amostra pequena que indica direção mais do que conclusão: 87% participariam da trilha se fosse gratuita, 75% sentiram que o programa era \"para eles\" e 90% acharam a plataforma fácil sem instrução. O achado mais relevante foi o nome: \"Chega Junto\" teve reação positiva imediata em todas as sessões, associado a acolhimento antes de qualquer descrição."),
+        cj("resultados.webp", "3º lugar no desafio ESG e resultados do teste exploratório"),
       ],
     },
     {
@@ -373,10 +335,11 @@ export const chegaJunto: SimpleCaseData = {
       title: "Aprendizados que \"chegaram junto\"",
       blocks: [
         list(
-          "**Design de serviço é tão importante quanto design de interface.** A maior contribuição desse projeto não foi a landing page ou a plataforma. Foi a estrutura da trilha em si. Aprendi que em projetos de impacto social, o produto digital é o meio, não o fim.",
-          "**Restrição de identidade visual é uma habilidade, não uma limitação.** Trabalhar dentro da marca do SEBRAE sem poder criar do zero me forçou a tomar decisões mais precisas dentro de um espaço menor. Em vez de explorar, precisei priorizar, e isso exigiu mais raciocínio, não menos.",
-          "**Pertencimento não se resolve com funcionalidade.** A pesquisa mostrou que a barreira não era falta de acesso, era falta de identificação. Isso mudou completamente a abordagem: antes de projetar qualquer tela, precisei projetar a percepção que o programa causaria. Foi a decisão mais importante do projeto e a que menos aparece nas telas.",
+          "**Design de serviço pesa tanto quanto design de interface:** o produto digital é o meio, não o fim.",
+          "**Restrição de marca é habilidade, não limitação:** exige priorizar em vez de explorar.",
+          "**Pertencimento não se resolve com funcionalidade.** Antes de projetar qualquer tela, precisei projetar a percepção que o programa causaria.",
         ),
+        cj("aprendizados.webp", "Os três aprendizados do projeto"),
       ],
     },
   ],
