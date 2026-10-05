@@ -25,11 +25,11 @@ export function FigmaBadge() {
 
 // One fixed color per category, so a tag looks the same on every card.
 const TAG_COLOR: Record<string, string> = {
-  Mobile: "bg-blue-50 text-blue-700",
-  Web: "bg-violet-50 text-violet-700",
-  "UX/UI": "bg-rose-50 text-rose-700",
-  "Product Design": "bg-emerald-50 text-emerald-700",
-  "Service Design": "bg-amber-50 text-amber-700",
+  Mobile: "bg-blue-50 text-blue-700 dark:bg-blue-400/15 dark:text-blue-300",
+  Web: "bg-violet-50 text-violet-700 dark:bg-violet-400/15 dark:text-violet-300",
+  "UX/UI": "bg-rose-50 text-rose-700 dark:bg-rose-400/15 dark:text-rose-300",
+  "Product Design": "bg-emerald-50 text-emerald-700 dark:bg-emerald-400/15 dark:text-emerald-300",
+  "Service Design": "bg-amber-50 text-amber-700 dark:bg-amber-400/15 dark:text-amber-300",
 };
 
 interface ProjectCardProps {
@@ -71,7 +71,7 @@ export function ProjectCard({ cover, color, title, href, tags }: ProjectCardProp
     </>
   );
   const cls =
-    "group block overflow-hidden rounded-2xl bg-white shadow-panel transition-shadow hover:ring-2 hover:ring-figma-selection";
+    "group block overflow-hidden rounded-2xl bg-surface shadow-panel transition-shadow hover:ring-2 hover:ring-figma-selection";
 
   return href ? (
     <Link href={href} className={cls}>

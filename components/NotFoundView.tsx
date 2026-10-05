@@ -8,7 +8,7 @@ import { MultiplayerCursor } from "./ContactCanvas";
 function Handle({ className }: { className: string }) {
   return (
     <span
-      className={`absolute h-2.5 w-2.5 rounded-[1px] border-2 border-figma-selection bg-white ${className}`}
+      className={`absolute h-2.5 w-2.5 rounded-[1px] border-2 border-figma-selection bg-surface ${className}`}
     />
   );
 }
@@ -33,7 +33,7 @@ export function NotFoundView() {
         <span className="absolute -top-7 left-0 text-sm font-medium text-figma-selection">
           {n.layer}
         </span>
-        <div className="relative border-2 border-figma-selection bg-white/70 px-8 py-14 text-center backdrop-blur-sm sm:px-12">
+        <div className="relative border-2 border-figma-selection bg-surface/70 px-8 py-14 text-center backdrop-blur-sm sm:px-12">
           <Handle className="-left-1.5 -top-1.5" />
           <Handle className="-right-1.5 -top-1.5" />
           <Handle className="-bottom-1.5 -left-1.5" />
@@ -56,7 +56,7 @@ export function NotFoundView() {
             </Link>
             <Link
               href="/#projetos"
-              className="rounded-xl bg-white px-5 py-3 text-[15px] font-semibold text-neutral-800 shadow-panel transition-colors hover:bg-neutral-50"
+              className="rounded-xl bg-surface px-5 py-3 text-[15px] font-semibold text-neutral-800 shadow-panel transition-colors hover:bg-neutral-50"
             >
               {n.projects}
             </Link>

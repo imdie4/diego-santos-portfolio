@@ -154,6 +154,8 @@ export const dict = {
     },
     contact: {
       title: "Vamos conversar?",
+      commentTime: "agora",
+      commentHeader: "Comentário",
       // Figma canvas decorations around the invitation
       sticky: "viu algo que gostou? manda um oi! 👋",
       sticky2: "ficou com alguma dúvida? pergunta aí!",
@@ -163,6 +165,7 @@ export const dict = {
       email: "Entre em contato",
     },
     wip: "Este frame ainda está sendo desenhado…",
+    theme: { label: "Tema", light: "Claro", dark: "Escuro" },
     notFound: {
       layer: "página-404",
       title: "Este frame não existe",
@@ -316,6 +319,8 @@ export const dict = {
     },
     contact: {
       title: "Let's talk.",
+      commentTime: "just now",
+      commentHeader: "Comment",
       sticky: "saw something you liked? say hi! 👋",
       sticky2: "got any questions? just ask!",
       you: "You",
@@ -324,6 +329,7 @@ export const dict = {
       email: "Get in touch",
     },
     wip: "This frame is still being designed…",
+    theme: { label: "Theme", light: "Light", dark: "Dark" },
     notFound: {
       layer: "page-404",
       title: "This frame doesn't exist",

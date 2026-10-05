@@ -5,6 +5,9 @@ import { usePathname } from "next/navigation";
 import { useLang, type Lang } from "@/lib/i18n";
 import { CommentIcon, CursorIcon, FrameIcon, TextIcon } from "./icons";
 import { ProfileMenu } from "./ProfileMenu";
+import { ThemeToggle } from "./ThemeToggle";
+
+const SHOW_LANG_TOGGLE = false;
 
 // IA Playground is hidden for now (PlaygroundSection.tsx and its texts are kept).
 const sectionIds = ["inicio", "projetos", "sobre", "contato"] as const;
@@ -66,7 +69,7 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between p-6">
       <ProfileMenu />
 
-      <nav className="absolute left-1/2 top-1/2 flex h-14 -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-2xl bg-white px-1.5 shadow-panel">
+      <nav className="absolute left-1/2 top-1/2 flex h-14 -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-2xl bg-surface px-1.5 shadow-panel">
         {sectionIds.map((id) => {
           const Icon = toolIcons[id];
           const isActive = activeId === id;
@@ -88,24 +91,30 @@ export function Header() {
         })}
       </nav>
 
-      <div className="flex h-14 w-[200px] items-center justify-center gap-1 rounded-2xl bg-white px-1.5 shadow-panel">
-        {(["pt", "en"] as Lang[]).map((code) => (
-          <button
-            key={code}
-            onClick={() => setLang(code)}
-            className={`flex items-center gap-1.5 rounded-xl px-4 py-2.5 text-sm font-semibold uppercase transition-colors ${
-              lang === code
-                ? "bg-neutral-100 text-figma-blue"
-                : "text-neutral-400 hover:text-neutral-600"
-            }`}
-          >
-            <span className="text-base leading-none" aria-hidden>
-              {code === "pt" ? "🇧🇷" : "🇺🇸"}
-            </span>
-            {code}
-          </button>
-        ))}
-      </div>
+      {/* Language switch is hidden for now (the site stays in PT); the dark
+          mode switch takes its place. Flip SHOW_LANG_TOGGLE to bring it back. */}
+      {SHOW_LANG_TOGGLE ? (
+        <div className="flex h-14 w-[200px] items-center justify-center gap-1 rounded-2xl bg-surface px-1.5 shadow-panel">
+          {(["pt", "en"] as Lang[]).map((code) => (
+            <button
+              key={code}
+              onClick={() => setLang(code)}
+              className={`flex items-center gap-1.5 rounded-xl px-4 py-2.5 text-sm font-semibold uppercase transition-colors ${
+                lang === code
+                  ? "bg-neutral-100 text-figma-blue"
+                  : "text-neutral-400 hover:text-neutral-600"
+              }`}
+            >
+              <span className="text-base leading-none" aria-hidden>
+                {code === "pt" ? "🇧🇷" : "🇺🇸"}
+              </span>
+              {code}
+            </button>
+          ))}
+        </div>
+      ) : (
+        <ThemeToggle />
+      )}
     </header>
   );
 }

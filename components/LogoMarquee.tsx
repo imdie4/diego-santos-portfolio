@@ -26,7 +26,7 @@ function LogoGroup({ ariaHidden = false }: { ariaHidden?: boolean }) {
             width={200}
             height={logo.h}
             style={{ height: logo.h, width: "auto" }}
-            className="opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+            className="opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 dark:opacity-60 dark:invert dark:hover:invert-0"
           />
         </li>
       ))}

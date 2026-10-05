@@ -218,7 +218,7 @@ export function CaseStudy({ slug }: { slug: string }) {
   const toc = tocIds.map((id, i) => ({ id, label: tocWords[i] }));
 
   return (
-    <article ref={revealRef} className="-mt-32 bg-white pt-32">
+    <article ref={revealRef} className="-mt-32 bg-surface pt-32">
       <div className="mx-auto max-w-5xl px-6">
         {/* 1 · HERO (scan) */}
         <header className="pb-6 pt-4">

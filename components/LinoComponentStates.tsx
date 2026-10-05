@@ -67,7 +67,7 @@ function AnimatedComponent({ c }: { c: Comp }) {
 
   return (
     <div
-      className={`flex min-h-[140px] flex-col items-center justify-center gap-4 rounded-2xl border border-dashed p-6 transition-colors ${
+      className={`keep-light flex min-h-[140px] flex-col items-center justify-center gap-4 rounded-2xl border border-dashed bg-surface p-6 transition-colors ${
         interactive
           ? "cursor-pointer border-[#3366E4]/35 hover:border-[#3366E4]/70"
           : "border-[#3366E4]/35"

@@ -12,7 +12,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR">
+    // suppressHydrationWarning: the script below may add `dark` before React loads
+    <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        {/* Apply the saved theme before first paint, so dark mode never
+            flashes light on load. Default is light. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.getItem("theme")==="dark")document.documentElement.classList.add("dark")}catch(e){}`,
+          }}
+        />
+      </head>
       <body>
         <LanguageProvider>
           <Header />

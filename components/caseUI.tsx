@@ -123,7 +123,7 @@ export function ToolIcon({ name }: { name: string }) {
         width={24}
         height={24}
         unoptimized
-        className="h-6 w-6 object-contain"
+        className="h-6 w-6 object-contain dark:invert"
       />
     );
   }

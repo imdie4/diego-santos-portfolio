@@ -86,7 +86,7 @@ export function ProfileMenu() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="flex h-14 w-[200px] items-center gap-3 rounded-2xl bg-white px-4 shadow-panel transition-colors hover:bg-neutral-50"
+        className="flex h-14 w-[200px] items-center gap-3 rounded-2xl bg-surface px-4 shadow-panel transition-colors hover:bg-neutral-50"
       >
         <span
           role="img"

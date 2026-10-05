@@ -115,7 +115,7 @@ function PhotoFrame({ tone, src }: { tone: Tone; src?: string }) {
       )}
 
       {/* photo placeholder */}
-      <div className="absolute inset-6 flex items-center justify-center rounded-2xl border border-dashed border-neutral-400/60 text-sm text-neutral-500">
+      <div className="keep-light absolute inset-6 flex items-center justify-center rounded-2xl border border-dashed border-neutral-400/60 text-sm text-neutral-500">
         Foto
       </div>
     </div>

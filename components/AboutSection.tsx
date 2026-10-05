@@ -21,7 +21,7 @@ const SOCIALS = [
 const TOOLS = [
   { name: "Figma", logo: "/logos/tools/figma.svg" },
   { name: "Miro", logo: "/logos/tools/miro.svg" },
-  { name: "Maze", logo: "/logos/tools/maze.svg" },
+  { name: "Maze", logo: "/logos/tools/maze.svg", invertInDark: true },
   { name: "Jira", logo: "/logos/tools/jira.svg" },
   { name: "Adobe Creative Suite", logo: "/logos/tools/adobe.svg" },
 ];
@@ -70,7 +70,7 @@ function CertificateBadge() {
 function Handle({ className }: { className: string }) {
   return (
     <span
-      className={`about-handle absolute z-10 h-2.5 w-2.5 rounded-[1px] border-2 border-figma-selection bg-white ${className}`}
+      className={`about-handle absolute z-10 h-2.5 w-2.5 rounded-[1px] border-2 border-figma-selection bg-surface ${className}`}
     />
   );
 }
@@ -84,7 +84,7 @@ export function AboutSection() {
   const delay = (ms: number) => ({ "--delay": `${ms}ms` }) as CSSProperties;
 
   return (
-    <section ref={ref} id="sobre" className="scroll-mt-28 border-t border-neutral-200 bg-white py-20">
+    <section ref={ref} id="sobre" className="scroll-mt-28 border-t border-neutral-200 bg-surface py-20">
       <div className="mx-auto max-w-7xl px-6">
         {/* Section title, same style as "Projetos" */}
         <h2 className="about-head text-3xl font-bold tracking-tight">{a.heading}</h2>
@@ -301,7 +301,7 @@ export function AboutSection() {
                       alt={tool.name}
                       width={40}
                       height={40}
-                      className="h-9 w-9 object-contain"
+                      className={`h-9 w-9 object-contain ${"invertInDark" in tool ? "dark:invert" : ""}`}
                     />
                   </HoverComment>
                 </li>

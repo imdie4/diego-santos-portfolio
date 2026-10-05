@@ -18,7 +18,7 @@ export function ProjectsSection() {
     <section
       ref={ref}
       id="projetos"
-      className="projects-reveal scroll-mt-28 bg-white py-20"
+      className="projects-reveal scroll-mt-28 bg-surface py-20"
     >
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="proj-head text-3xl font-bold tracking-tight">{p.heading}</h2>

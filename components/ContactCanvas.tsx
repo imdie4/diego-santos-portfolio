@@ -63,7 +63,7 @@ export function StickyNote({
   return (
     <div aria-hidden className={`rv-pop pointer-events-none absolute ${className}`} style={delay(at)}>
       <div
-        className={`flex h-36 w-36 items-center justify-center p-4 text-left text-[15px] font-medium leading-snug text-neutral-800 shadow-[0_8px_20px_rgba(0,0,0,0.12)] ${paper}`}
+        className={`keep-light flex h-36 w-36 items-center justify-center p-4 text-left text-[15px] font-medium leading-snug text-neutral-800 shadow-[0_8px_20px_rgba(0,0,0,0.12)] ${paper}`}
       >
         {text}
       </div>

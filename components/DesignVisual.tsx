@@ -171,7 +171,7 @@ function Palette({
         {palette.map((c) => (
           <div key={c.hex}>
             <div
-              className="relative flex h-32 flex-col justify-end rounded-2xl p-4"
+              className="keep-light relative flex h-32 flex-col justify-end rounded-2xl p-4"
               style={{ background: c.hex }}
             >
               {c.role && (

@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 function PhoneWireframe({ after }: { after: boolean }) {
   const bar = "rounded bg-neutral-200";
   return (
-    <div className="relative mx-auto aspect-[9/19.5] w-full rounded-[1.7rem] bg-neutral-900 p-[5px] shadow-sm">
+    <div className="keep-light relative mx-auto aspect-[9/19.5] w-full rounded-[1.7rem] bg-neutral-900 p-[5px] shadow-sm">
       <div className="relative h-full w-full overflow-hidden rounded-[1.35rem] bg-white">
         {/* dynamic island */}
         <div className="absolute left-1/2 top-2 h-3 w-11 -translate-x-1/2 rounded-full bg-neutral-900" />

@@ -31,7 +31,7 @@ const COLORS = [
 ] as const;
 
 const HANDLE =
-  "absolute h-2.5 w-2.5 rounded-[1px] border-2 border-figma-selection bg-white";
+  "absolute h-2.5 w-2.5 rounded-[1px] border-2 border-figma-selection bg-surface";
 
 interface EditableTextProps {
   as?: ElementType;
@@ -139,7 +139,7 @@ export function EditableText({
           className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-[18px]"
           onClick={(e) => e.stopPropagation()}
         >
-        <div className="w-64 cursor-default rounded-2xl bg-white p-3 text-left shadow-2xl ring-1 ring-black/5">
+        <div className="w-64 cursor-default rounded-2xl bg-surface p-3 text-left shadow-2xl ring-1 ring-black/5">
           <p className="px-1 pb-2 text-xs font-medium uppercase tracking-wide text-neutral-400">
             {t.hero.edit.text} · {name}
           </p>

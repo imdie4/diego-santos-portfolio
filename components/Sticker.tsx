@@ -103,7 +103,7 @@ export function Sticker({
   }
 
   const handle =
-    "absolute h-2 w-2 rounded-[1px] border border-figma-selection bg-white";
+    "absolute h-2 w-2 rounded-[1px] border border-figma-selection bg-surface";
 
   const showComment = hovering && !dragging && comment;
 
