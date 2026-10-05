@@ -45,7 +45,7 @@ export const ecotrack: SimpleCaseData = {
   slug: "ecotrack",
   accent: "#4F9A3E",
   subtitle:
-    "Validado com 60% de aprovação entre empresários testados, o EcoTrack é um aplicativo que ajuda micro, pequenas e médias empresas (MPMEs) a monitorar, comparar e otimizar o uso de recursos como água, energia e resíduos, conectando sustentabilidade a impacto financeiro e decisões estratégicas.",
+    "App iOS que ajuda micro e pequenas empresas a monitorar, comparar e otimizar água, energia e resíduos, ligando sustentabilidade a decisão financeira.",
   meta: [
     { label: "Papel", value: "Product Designer" },
     { label: "Duração", value: "8 semanas" },
@@ -55,13 +55,13 @@ export const ecotrack: SimpleCaseData = {
   cover: { src: "/img/projects/ecotrack.png", alt: "Telas do EcoTrack", width: 1600, height: 800 },
   overview: {
     problem: [
-      "MPMEs gerenciam recursos sem visibilidade comparativa e não conseguem conectar sustentabilidade a decisões financeiras concretas.",
+      "Micro e pequenas empresas gerenciam seus recursos sem nenhuma referência de comparação e não conseguem conectar sustentabilidade a decisões financeiras concretas.",
     ],
     solution:
-      "App iOS que transforma dados ambientais em decisões estratégicas, conectando monitoramento, benchmarking e certificações em um único lugar.",
+      "Um app iOS que transforma dado ambiental em decisão estratégica, reunindo monitoramento, comparação com empresas similares e certificações em um só lugar.",
     impact: [
-      { value: "60%", label: "de aprovação\nnos testes" },
-      { value: "10", label: "empresários\ntestados" },
+      { value: "70%", label: "nunca tinham visto\nseus dados assim" },
+      { value: "75%", label: "quiseram\nacompanhar metas" },
     ],
     image: { alt: "Visão geral da solução" },
   },
@@ -71,8 +71,7 @@ export const ecotrack: SimpleCaseData = {
       toc: "Processo",
       title: "Processo de Design",
       blocks: [
-        p("O projeto foi conduzido utilizando Challenge Based Learning e Design Thinking, estruturando o processo em descoberta, definição e prototipação."),
-        p("Na fase inicial, priorizei validar o problema com usuários e dados secundários antes de explorar soluções. Evitei partir direto para interface para garantir que o produto resolvesse uma dor real, e não uma suposição."),
+        p("Conduzi o projeto em 8 semanas, com Challenge Based Learning e Design Thinking: descoberta, definição e prototipação. Antes de abrir qualquer interface, validei o problema com usuários e dados secundários, para resolver uma dor real, não uma suposição."),
         img("Processo de design"),
       ],
     },
@@ -81,14 +80,7 @@ export const ecotrack: SimpleCaseData = {
       toc: "Descobertas",
       title: "Descobertas que Guiaram o Produto",
       blocks: [
-        p("A pesquisa revelou três padrões consistentes:"),
-        list(
-          "Empresários não possuem referência para avaliar seus gastos",
-          "Dados estão disponíveis, mas são difíceis de interpretar",
-          "Certificações são pouco utilizadas por falta de clareza sobre retorno",
-        ),
-        p("A partir disso, defini três pilares para o produto: comparação, clareza e orientação prática."),
-        p("Esses pilares direcionaram todas as decisões seguintes de produto."),
+        p("Entrevistei 12 microempreendedores de setores variados. 67% nunca compararam seus gastos com empresas do mesmo porte, e 75% não sabiam como uma certificação ambiental poderia impactar o negócio. Três padrões se repetiram: falta de referência para avaliar gastos, dado difícil de interpretar e certificações pouco usadas por falta de clareza sobre o retorno. Deles saíram os três pilares do produto: comparação, clareza e orientação prática."),
         img("Descobertas da pesquisa"),
         img("Pilares do produto"),
       ],
@@ -98,9 +90,7 @@ export const ecotrack: SimpleCaseData = {
       toc: "Perfil",
       title: "Perfil e Comportamento do Usuário",
       blocks: [
-        p("Modelei o usuário como um microempreendedor que acumula funções operacionais e financeiras, com pouco tempo disponível e alta sensibilidade a custos."),
-        p("Esse entendimento me levou a evitar dashboards analíticos e relatórios detalhados, priorizando comparações diretas e indicadores simples para reduzir o tempo de interpretação e facilitar decisões rápidas."),
-        p("O mapa de empatia revelou o padrão central que o produto precisava quebrar: sustentabilidade era percebida como obrigação operacional, não como diferencial competitivo."),
+        p("Criei o Carlos Henrique, 36 anos, dono de uma padaria de bairro, que cuida sozinho de finanças e operação e vive atento a custo. Como ele tem pouco tempo, decidi evitar dashboards analíticos e priorizar comparações diretas e indicadores simples. O mapa de empatia mostrou o padrão que o produto precisava quebrar: sustentabilidade era vista como obrigação operacional, não como diferencial competitivo."),
         img("Persona e mapa de empatia"),
       ],
     },
@@ -109,8 +99,7 @@ export const ecotrack: SimpleCaseData = {
       toc: "Arquitetura",
       title: "Arquitetura de Fluxo",
       blocks: [
-        p("Organizei o produto em três seções com papéis distintos e complementares: Home para monitoramento e comparação dos recursos, Certificados para transformar certificações em progresso mensurável e Metas para conectar cada recurso a ações com retorno financeiro estimado."),
-        p("A conexão entre as três foi uma decisão central. Monitorar sem comparar não gera urgência, comparar sem próximo passo não gera ação, e agir sem visibilidade de retorno não sustenta o comportamento."),
+        p("Organizei o produto em três seções: Home, para monitorar e comparar, Certificados, para transformar certificação em progresso mensurável, e Metas, para ligar cada recurso a uma ação com retorno financeiro estimado. A conexão entre as três foi a decisão central: monitorar sem comparar não gera urgência, comparar sem próximo passo não gera ação, e agir sem ver o retorno não sustenta o comportamento."),
         img("Arquitetura de fluxo"),
       ],
     },
@@ -119,15 +108,7 @@ export const ecotrack: SimpleCaseData = {
       toc: "Validação",
       title: "Validação Estrutural",
       blocks: [
-        p("Estruturei a solução em quatro frentes principais:"),
-        list(
-          "Registro simplificado de consumo",
-          "Comparação com empresas similares",
-          "Metas com impacto financeiro estimado",
-          "Acompanhamento de certificações",
-        ),
-        p("Optei por priorizar comparação em vez de dashboards complexos porque os usuários demonstraram necessidade de entender rapidamente se estavam acima ou abaixo da média, e não de analisar grandes volumes de dados. Essa decisão reduziu a complexidade da interface e tornou a tomada de decisão mais imediata."),
-        p("Também considerei automatizar recomendações mais avançadas, mas descartei essa abordagem neste momento por depender de dados que pequenas empresas geralmente não possuem de forma estruturada."),
+        p("Estruturei a solução em wireframe com quatro frentes: registro simplificado, comparação com similares, metas com impacto financeiro e acompanhamento de certificações. Priorizei comparação em vez de dashboards complexos, porque o empresário precisava saber rápido se estava acima ou abaixo da média. Descartei recomendações automatizadas, por dependerem de dados estruturados que pequenas empresas geralmente não têm."),
         img("Wireframes — parte 1"),
         img("Wireframes — parte 2"),
         img("Wireframes — parte 3"),
@@ -138,10 +119,7 @@ export const ecotrack: SimpleCaseData = {
       toc: "Visual",
       title: "Diretrizes Visuais",
       blocks: [
-        p("Optei pela SF Pro pela leitura analítica limpa, adequada ao contexto de gestão empresarial. Defini cores com papéis fixos por recurso:"),
-        list("Azul para água;", "Amarelo para energia;", "Laranja para resíduos."),
-        p("O empresário identifica o contexto antes de ler qualquer texto."),
-        p("Verde claro e escuro ancoram a identidade da marca, estruturando a navegação e as ações primárias; azul escuro marca o universo de certificações, transmitindo autoridade e confiança."),
+        p("Escolhi a SF Pro pela leitura analítica limpa, adequada a um contexto de gestão. Cada recurso tem uma cor fixa (azul para água, amarelo para energia, laranja para resíduos), para o empresário identificar o contexto antes de ler qualquer texto. O verde ancora a marca e a navegação, e o azul escuro marca certificações, transmitindo autoridade."),
         img("Tipografia e cores"),
         img("Componentes da interface"),
       ],
@@ -151,12 +129,7 @@ export const ecotrack: SimpleCaseData = {
       toc: "Protótipo",
       title: "Protótipo de Alta Fidelidade",
       blocks: [
-        p("Cada tela responde diretamente a um dos três pilares definidos na pesquisa."),
-        list(
-          "**Home: o dado virou contexto.** Centraliza os três recursos com consumo mensal, custo e análise comparativa com empresas do mesmo porte. O empresário entende em segundos se está acima ou abaixo da média do setor.",
-          "**Certificados: a certificação abstrata virou progresso mensurável.** O empresário vê quais certificações são acessíveis para seu porte, o percentual de conclusão, as ações pendentes e os benefícios financeiros do selo. Dentro do próprio app, sem precisar pesquisar fora.",
-          "**Metas: a intenção sustentável virou ação com retorno estimado.** Cada meta conecta um recurso a uma ação concreta com investimento inicial e projeção de economia a longo prazo, separando metas ativas de concluídas.",
-        ),
+        p("Cada tela responde a um dos pilares. Na Home, o dado virou contexto: consumo, custo e comparação com empresas do mesmo porte. Em Certificados, a certificação virou progresso mensurável, com percentual, pendências e benefício financeiro. Em Metas, a intenção virou ação, com investimento inicial e economia estimada."),
         img("Telas em alta fidelidade"),
       ],
     },
@@ -165,13 +138,8 @@ export const ecotrack: SimpleCaseData = {
       toc: "Teste",
       title: "Teste Exploratório",
       blocks: [
-        p("Conduzi testes com 10 empresários de micro e pequenas empresas usando o protótipo interativo. O achado mais relevante foi comportamental: apresentar consumo com contexto comparativo e projeção financeira mudou o enquadramento da conversa, de \"preciso ser mais sustentável\" para \"posso reduzir custos e ganhar vantagem competitiva\"."),
-        list(
-          "A comparação com empresas semelhantes aumentou a confiança na tomada de decisão;",
-          "A visualização de impacto financeiro tornou as ações sustentáveis mais relevantes;",
-          "Muitos usuários nunca haviam tido acesso a seus dados contextualizados dessa forma.",
-        ),
-        p("Durante os testes, percebi que certificações eram pouco exploradas. Reposicionei a seção destacando benefícios práticos e financeiros. O engajamento com essa parte aumentou nas sessões seguintes."),
+        p("Testei o protótipo com 10 empresários, amostra pequena que indica direção mais do que conclusão. 70% nunca tinham visto seus dados contextualizados daquela forma, 60% disseram que o benchmarking influenciaria decisões futuras de redução de custo e 75% quiseram acompanhar metas depois de ver a projeção financeira. A conversa mudou de \"preciso ser mais sustentável\" para \"posso reduzir custos e ganhar vantagem competitiva\"."),
+        p("Durante os testes, percebi que as certificações eram pouco exploradas. Reposicionei a seção destacando os benefícios práticos e financeiros, e o engajamento com ela subiu nas sessões seguintes."),
         img("Teste exploratório"),
       ],
     },
@@ -181,9 +149,9 @@ export const ecotrack: SimpleCaseData = {
       title: "O que o EcoTrack me ensinou?",
       blocks: [
         list(
-          "**Framing é uma decisão de design.** Nas entrevistas, chamar o EcoTrack de \"ferramenta de gestão\" em vez de \"app de sustentabilidade\" mudou completamente a receptividade. Aprendi que posicionamento não é só marketing, ele define quem abre o produto e por quê.",
-          "**Dado sem consequência não move empresário.** A versão inicial mostrava consumo isolado. Só quando adicionei comparação setorial e projeção de economia na mesma tela é que o dado passou a gerar decisão. Para público de negócios, contexto e próximo passo precisam estar sempre juntos.",
-          "**Certificações eram o diferencial que subestimei.** Na pesquisa apareceram como dor secundária. Nos testes, foram a feature que mais gerou engajamento. Com mais tempo de discovery, teria investigado esse tema com mais profundidade antes de definir a arquitetura.",
+          "**Framing é uma decisão de design.** Chamar o app de \"ferramenta de gestão\" em vez de \"app de sustentabilidade\" mudou a receptividade nas entrevistas. Posicionamento define quem abre o produto e por quê.",
+          "**Dado sem consequência não move empresário.** Só quando coloquei comparação setorial e projeção de economia na mesma tela o dado passou a gerar decisão.",
+          "**Certificações eram o diferencial que subestimei.** Apareceram como dor secundária na pesquisa e viraram a feature de maior engajamento nos testes. Com mais tempo de discovery, teria investigado esse tema antes de fechar a arquitetura.",
         ),
       ],
     },
