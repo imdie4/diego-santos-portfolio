@@ -62,13 +62,13 @@ function Blocks({
       {blocks.map((b, i) => {
         if (b.type === "p")
           return (
-            <p key={i} className="max-w-3xl text-pretty text-lg leading-relaxed text-neutral-700">
+            <p key={i} className="text-pretty text-lg leading-relaxed text-neutral-700">
               {rich(b.text)}
             </p>
           );
         if (b.type === "list")
           return (
-            <ul key={i} className="flex max-w-3xl flex-col gap-3">
+            <ul key={i} className="flex flex-col gap-3">
               {b.items.map((item) => (
                 <li key={item} className="flex gap-3 text-lg leading-relaxed text-neutral-700">
                   <span
