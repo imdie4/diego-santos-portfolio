@@ -106,6 +106,7 @@ export const dict = {
           name: "Swift Student Challenge",
           org: "Apple",
           year: "2025",
+          status: "",
           desc: "Vencedor do desafio global da Apple para estudantes, com um app desenvolvido em Swift.",
         },
         {
@@ -113,6 +114,7 @@ export const dict = {
           name: "Front-end Development",
           org: "Origamid",
           year: "2026",
+          status: "Cursando",
           desc: "Curso de desenvolvimento front-end com HTML, CSS e JavaScript.",
         },
       ],
@@ -271,6 +273,7 @@ export const dict = {
           name: "Swift Student Challenge",
           org: "Apple",
           year: "2025",
+          status: "",
           desc: "Winner of Apple's global challenge for student developers, with an app built in Swift.",
         },
         {
@@ -278,6 +281,7 @@ export const dict = {
           name: "Front-end Development",
           org: "Origamid",
           year: "2026",
+          status: "In progress",
           desc: "Front-end development course covering HTML, CSS and JavaScript.",
         },
       ],

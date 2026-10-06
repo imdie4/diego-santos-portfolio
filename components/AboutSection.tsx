@@ -275,7 +275,15 @@ export function AboutSection() {
                     <p className="mt-2 text-sm text-neutral-600">{award.desc}</p>
                   </div>
                   {award.year && (
-                    <span className="text-sm text-neutral-500">{award.year}</span>
+                    <span className="flex shrink-0 items-center gap-2 text-sm text-neutral-500">
+                      {/* still in progress (e.g. a course being taken) */}
+                      {award.status && (
+                        <span className="rounded-full bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-700 ring-1 ring-amber-200 dark:text-amber-300">
+                          {award.status}
+                        </span>
+                      )}
+                      {award.year}
+                    </span>
                   )}
                 </div>
               ))}
