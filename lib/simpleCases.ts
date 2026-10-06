@@ -156,8 +156,8 @@ export const ecotrack: SimpleCaseData = {
       blocks: [
         list(
           "**Framing é uma decisão de design.** Chamar o app de \"ferramenta de gestão\" em vez de \"app de sustentabilidade\" mudou a receptividade nas entrevistas. Posicionamento define quem abre o produto e por quê.",
-          "**Dado sem consequência não move empresário.** Só quando coloquei comparação setorial e projeção de economia na mesma tela o dado passou a gerar decisão.",
-          "**Certificações eram o diferencial que subestimei.** Apareceram como dor secundária na pesquisa e viraram a feature de maior engajamento nos testes. Com mais tempo de discovery, teria investigado esse tema antes de fechar a arquitetura.",
+          "**Empresários valorizam resultado.** Só quando coloquei comparação setorial e projeção de economia na mesma tela o dado passou a gerar decisão.",
+          "**Certificações se tornaram uma feature essencial.** Apareceram como dor secundária na pesquisa e viraram a feature de maior engajamento nos testes. Com mais tempo de discovery, teria investigado esse tema antes de fechar a arquitetura.",
         ),
         et("aprendizados.webp", "Os três aprendizados do EcoTrack"),
       ],
@@ -179,7 +179,7 @@ export const chegaJunto: SimpleCaseData = {
     "Uma trilha de empregabilidade que aproxima o SEBRAE/PE da comunidade Caranguejo Tabaiares e liga capacitação a vagas reais.",
   meta: [
     { label: "Papel", value: "Product Designer" },
-    { label: "Duração", value: "2 meses" },
+    { label: "Duração", value: "8 semanas" },
     { label: "Cliente", value: "SEBRAE/PE" },
     { label: "Categoria", value: "UX/UI" },
   ],
@@ -301,7 +301,7 @@ export const chegaJunto: SimpleCaseData = {
       toc: "Resultados",
       title: "Resultados e validação",
       blocks: [
-        p("A proposta ficou em 3º lugar entre todas as equipes. Antes da apresentação, testei o protótipo com 8 moradores, amostra pequena que indica direção mais do que conclusão: 87% participariam da trilha se fosse gratuita, 75% sentiram que o programa era \"para eles\" e 90% acharam a plataforma fácil sem instrução. O achado mais relevante foi o nome: \"Chega Junto\" teve reação positiva imediata em todas as sessões, associado a acolhimento antes de qualquer descrição."),
+        p("A proposta ficou em 3º lugar entre todas as equipes. Antes da apresentação, testei o protótipo com 12 moradores, amostra pequena que indica direção mais do que conclusão: 87% participariam da trilha se fosse gratuita, 75% disseram que o nome e o visual geravam sensação de pertencimento e 80% acharam a plataforma fácil de usar desde a primeira interação. O achado mais relevante foi o nome: \"Chega Junto\" teve reação positiva imediata em todas as sessões, associado a acolhimento antes de qualquer descrição."),
         cj("resultados.webp", "3º lugar no desafio ESG e resultados do teste exploratório"),
       ],
     },
@@ -311,8 +311,8 @@ export const chegaJunto: SimpleCaseData = {
       title: "Aprendizados que \"chegaram junto\"",
       blocks: [
         list(
-          "**Design de serviço pesa tanto quanto design de interface:** o produto digital é o meio, não o fim.",
-          "**Restrição de marca é habilidade, não limitação:** exige priorizar em vez de explorar.",
+          "**Design de serviço é tão importante quanto UI:** o produto digital é o meio, não o fim.",
+          "**Restrições são uma habilidade, não uma limitação:** exigem priorizar em vez de explorar.",
           "**Pertencimento não se resolve com funcionalidade.** Antes de projetar qualquer tela, precisei projetar a percepção que o programa causaria.",
         ),
         cj("aprendizados.webp", "Os três aprendizados do projeto"),
@@ -335,7 +335,7 @@ export const lino: SimpleCaseData = {
     "Redesenho gamificado reduziu o abandono do treino fonoaudiológico, elevando a conclusão em 42%.",
   meta: [
     { label: "Papel", value: "Product Designer" },
-    { label: "Duração", value: "8 semanas" },
+    { label: "Duração", value: "6 semanas" },
     { label: "Cliente", value: "Apple Developer Academy" },
     { label: "Categoria", value: "UX/UI Mobile" },
   ],
@@ -366,7 +366,7 @@ export const lino: SimpleCaseData = {
       toc: "Pesquisa",
       title: "Causas e oportunidades",
       blocks: [
-        p("Entrevistei crianças, responsáveis e fonoaudiólogos e encontrei três dores conectadas: a repetição cansa e derruba o engajamento, os responsáveis não enxergam a evolução e os terapeutas perdem visibilidade da prática em casa. Ao cruzar as três, percebi que o problema não era falta de exercício, era a forma como a repetição era vivida. A decisão central foi transformar repetição em progresso percebido, atuando no momento de maior abandono."),
+        p("Entrevistei 8 crianças, 15 responsáveis e 10 fonoaudiólogos na Comunidade Beira Rio, na Várzea, e encontrei três dores conectadas: a repetição cansa e derruba o engajamento, os responsáveis não enxergam a evolução e os terapeutas perdem visibilidade da prática em casa. Ao cruzar as três, percebi que o problema não era falta de exercício, era a forma como a repetição era vivida. A decisão central foi transformar repetição em progresso percebido, atuando no momento de maior abandono."),
         li("pesquisa-campo.png", "Pesquisa na Comunidade Beira Rio / Várzea: entrevistados, números e falas"),
         li("falas-fonoaudiologos.png", "Falas de fonoaudiólogos sobre a rotina de exercícios"),
       ],
@@ -386,7 +386,7 @@ export const lino: SimpleCaseData = {
       toc: "Arquitetura",
       title: "Arquitetura da Solução",
       blocks: [
-        p("Dividi o produto em dois núcleos: Prática, com exercícios, missão diária e medalhas para a criança, e Jornada, com progressão e acompanhamento para o responsável. Foi uma decisão consciente para separar ação de acompanhamento, reduzir a carga cognitiva e permitir evoluir o produto sem aumentar a complexidade."),
+        p("Dividi o produto em dois núcleos: Home, com atividades, missão diária e medalhas para a criança, e Jornada, com progresso, relatório e gestão de atividades para o responsável. Foi uma decisão consciente para separar ação de acompanhamento, reduzir a carga cognitiva e permitir evoluir o produto sem aumentar a complexidade."),
         li("arquitetura.png", "Arquitetura do Lino, com os núcleos Home e Jornada"),
       ],
     },
@@ -425,7 +425,7 @@ export const lino: SimpleCaseData = {
       toc: "Resultados",
       title: "Resultados e Validação",
       blocks: [
-        p("Testei por 3 semanas com 6 crianças, 5 responsáveis e 3 fonoaudiólogas, amostra pequena que indica direção mais do que conclusão. Observei as mesmas crianças com o método tradicional e depois com o Lino, nas mesmas condições em casa. A conclusão de atividades subiu 42%, a frequência semanal 38% e o tempo médio por sessão 31%."),
+        p("Testei por 3 semanas com 6 crianças, 5 responsáveis e 3 fonoaudiólogas, amostra pequena que indica direção mais do que conclusão. Observei as mesmas crianças com o método tradicional e depois com o Lino, nas mesmas condições em casa. A conclusão de atividades subiu 42%, a frequência semanal 38% e o tempo médio de engajamento por sessão 31%, e 87% dos responsáveis relataram maior clareza sobre o progresso."),
         p("O principal aprendizado foi o mecanismo por trás dos números: ver pontos e estrelas acumulando em tempo real reduzia a resistência à repetição. Aprender a articular um fonema não tem feedback imediato, e o design precisava criar esse feedback."),
         li("resultados.png", "Resultados do teste de 3 semanas: +42%, +38%, 87% e +31%"),
       ],
@@ -436,9 +436,9 @@ export const lino: SimpleCaseData = {
       title: "Aprendizados que o Lino me trouxe",
       blocks: [
         list(
-          "**Teria testado com crianças mais cedo.** Validei wireframes com adultos e só vi o problema no protótipo final: adultos subestimam a impaciência infantil com fluxos longos.",
-          "**A separação de fluxos foi a decisão mais impactante,** e só foi possível porque as personas foram mapeadas a fundo antes de qualquer decisão de arquitetura.",
-          "**Retenção ficou sem resposta.** Os testes mediram engajamento dentro da sessão, não retenção, então D1 e D7 seriam as métricas prioritárias. Também priorizaria um alerta proativo ao responsável, que hoje só percebe uma falta de prática ao abrir a Jornada por conta própria.",
+          "**Teste com crianças precisa vir mais cedo no processo.** Validei wireframes com adultos e só vi o problema no protótipo final: adultos subestimam a impaciência infantil com fluxos longos.",
+          "**Separar os fluxos foi a decisão mais impactante.** Só foi possível porque as personas foram mapeadas a fundo antes de qualquer decisão de arquitetura.",
+          "**Teste de retenção era importante para as métricas.** Os testes mediram engajamento dentro da sessão, não retenção, então D1 e D7 seriam as métricas prioritárias. Também priorizaria um alerta proativo ao responsável, que hoje só percebe uma falta de prática ao abrir a Jornada por conta própria.",
         ),
         li("aprendizados.png", "Os três aprendizados do Lino"),
       ],

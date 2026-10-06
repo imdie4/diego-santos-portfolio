@@ -32,21 +32,6 @@ const LINKS = [
       />
     ),
   },
-  {
-    name: "Figma Community",
-    href: "https://www.figma.com/@diegosantos",
-    badge: (
-      <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#1E1E1E]">
-        <svg viewBox="0 0 12 18" className="h-4 w-auto" aria-hidden>
-          <path d="M6 9a3 3 0 1 1 6 0 3 3 0 0 1-6 0z" fill="#1ABCFE" />
-          <path d="M0 15a3 3 0 0 1 3-3h3v3a3 3 0 1 1-6 0z" fill="#0ACF83" />
-          <path d="M6 0v6h3a3 3 0 1 0 0-6H6z" fill="#FF7262" />
-          <path d="M0 3a3 3 0 0 0 3 3h3V0H3a3 3 0 0 0-3 3z" fill="#F24E1E" />
-          <path d="M0 9a3 3 0 0 0 3 3h3V6H3a3 3 0 0 0-3 3z" fill="#A259FF" />
-        </svg>
-      </span>
-    ),
-  },
 ];
 
 export function ProfileMenu() {
