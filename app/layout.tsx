@@ -4,7 +4,7 @@ import { LanguageProvider } from "@/lib/i18n";
 import { Header } from "@/components/Header";
 import "./globals.css";
 
-const SITE_URL = "https://diegosantosportfolio.vercel.app";
+const SITE_URL = "https://www.diegosantosdesign.com";
 const DESCRIPTION =
   "Portfólio de Diego Santos, designer de produto: criando produtos digitais a partir de problemas e pessoas reais.";
 
