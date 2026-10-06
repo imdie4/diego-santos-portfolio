@@ -41,6 +41,13 @@ const p = (text: string): ContentBlock => ({ type: "p", text });
 const list = (...items: string[]): ContentBlock => ({ type: "list", items });
 const img = (alt: string, src?: string): ContentBlock => ({ type: "img", image: { alt, src } });
 
+const ET = "/img/cases/ecotrack";
+/** EcoTrack images: all exported at 1880×960. */
+const et = (file: string, alt: string): ContentBlock => ({
+  type: "img",
+  image: { src: `${ET}/${file}`, alt, width: 1880, height: 960 },
+});
+
 export const ecotrack: SimpleCaseData = {
   slug: "ecotrack",
   accent: "#4F9A3E",
@@ -63,7 +70,6 @@ export const ecotrack: SimpleCaseData = {
       { value: "70%", label: "nunca tinham visto\nseus dados assim" },
       { value: "75%", label: "quiseram\nacompanhar metas" },
     ],
-    image: { alt: "Visão geral da solução" },
   },
   sections: [
     {
@@ -72,7 +78,7 @@ export const ecotrack: SimpleCaseData = {
       title: "Processo de Design",
       blocks: [
         p("Conduzi o projeto em 8 semanas, com Challenge Based Learning e Design Thinking: descoberta, definição e prototipação. Antes de abrir qualquer interface, validei o problema com usuários e dados secundários, para resolver uma dor real, não uma suposição."),
-        img("Processo de design"),
+        et("processo-cbl.png", "Cronograma de 8 semanas com Challenge Based Learning: Engage, Investigate e Act"),
       ],
     },
     {
@@ -81,8 +87,8 @@ export const ecotrack: SimpleCaseData = {
       title: "Descobertas que Guiaram o Produto",
       blocks: [
         p("Entrevistei 12 microempreendedores de setores variados. 67% nunca compararam seus gastos com empresas do mesmo porte, e 75% não sabiam como uma certificação ambiental poderia impactar o negócio. Três padrões se repetiram: falta de referência para avaliar gastos, dado difícil de interpretar e certificações pouco usadas por falta de clareza sobre o retorno. Deles saíram os três pilares do produto: comparação, clareza e orientação prática."),
-        img("Descobertas da pesquisa"),
-        img("Pilares do produto"),
+        et("pesquisa-entrevistas.png", "Pesquisa com 12 micro e pequenos empresários: 67% nunca compararam gastos e 75% não sabiam o impacto da certificação"),
+        et("mapa-falas-sentimentos.png", "Falas, sentimentos e oportunidades em registro, comparação, metas e certificados"),
       ],
     },
     {
@@ -91,7 +97,7 @@ export const ecotrack: SimpleCaseData = {
       title: "Perfil e Comportamento do Usuário",
       blocks: [
         p("Criei o Carlos Henrique, 36 anos, dono de uma padaria de bairro, que cuida sozinho de finanças e operação e vive atento a custo. Como ele tem pouco tempo, decidi evitar dashboards analíticos e priorizar comparações diretas e indicadores simples. O mapa de empatia mostrou o padrão que o produto precisava quebrar: sustentabilidade era vista como obrigação operacional, não como diferencial competitivo."),
-        img("Persona e mapa de empatia"),
+        et("persona-carlos-henrique.webp", "Persona Carlos Henrique, 36 anos, dono de uma padaria de bairro"),
       ],
     },
     {
@@ -100,7 +106,7 @@ export const ecotrack: SimpleCaseData = {
       title: "Arquitetura de Fluxo",
       blocks: [
         p("Organizei o produto em três seções: Home, para monitorar e comparar, Certificados, para transformar certificação em progresso mensurável, e Metas, para ligar cada recurso a uma ação com retorno financeiro estimado. A conexão entre as três foi a decisão central: monitorar sem comparar não gera urgência, comparar sem próximo passo não gera ação, e agir sem ver o retorno não sustenta o comportamento."),
-        img("Arquitetura de fluxo"),
+        et("arquitetura-fluxo.png", "Arquitetura de fluxo com Home, Certificados e Metas"),
       ],
     },
     {
@@ -109,9 +115,7 @@ export const ecotrack: SimpleCaseData = {
       title: "Validação Estrutural",
       blocks: [
         p("Estruturei a solução em wireframe com quatro frentes: registro simplificado, comparação com similares, metas com impacto financeiro e acompanhamento de certificações. Priorizei comparação em vez de dashboards complexos, porque o empresário precisava saber rápido se estava acima ou abaixo da média. Descartei recomendações automatizadas, por dependerem de dados estruturados que pequenas empresas geralmente não têm."),
-        img("Wireframes — parte 1"),
-        img("Wireframes — parte 2"),
-        img("Wireframes — parte 3"),
+        et("wireframes.webp", "Wireframes das telas de Home, Certificados e Energia"),
       ],
     },
     {
@@ -120,8 +124,9 @@ export const ecotrack: SimpleCaseData = {
       title: "Diretrizes Visuais",
       blocks: [
         p("Escolhi a SF Pro pela leitura analítica limpa, adequada a um contexto de gestão. Cada recurso tem uma cor fixa (azul para água, amarelo para energia, laranja para resíduos), para o empresário identificar o contexto antes de ler qualquer texto. O verde ancora a marca e a navegação, e o azul escuro marca certificações, transmitindo autoridade."),
-        img("Tipografia e cores"),
-        img("Componentes da interface"),
+        et("tipografia-sf-pro.png", "Tipografia SF Pro e escala tipográfica"),
+        et("cores-icones.png", "Paleta de cores e ícones"),
+        et("componentes.png", "Componentes da interface"),
       ],
     },
     {
@@ -130,7 +135,8 @@ export const ecotrack: SimpleCaseData = {
       title: "Protótipo de Alta Fidelidade",
       blocks: [
         p("Cada tela responde a um dos pilares. Na Home, o dado virou contexto: consumo, custo e comparação com empresas do mesmo porte. Em Certificados, a certificação virou progresso mensurável, com percentual, pendências e benefício financeiro. Em Metas, a intenção virou ação, com investimento inicial e economia estimada."),
-        img("Telas em alta fidelidade"),
+        et("prototipo-home-certificados-metas.png", "Protótipo das telas Home, Certificados e Metas"),
+        et("prototipo-recursos.png", "Protótipo das telas de Resíduos, Água e Energia"),
       ],
     },
     {
@@ -140,7 +146,7 @@ export const ecotrack: SimpleCaseData = {
       blocks: [
         p("Testei o protótipo com 10 empresários, amostra pequena que indica direção mais do que conclusão. 70% nunca tinham visto seus dados contextualizados daquela forma, 60% disseram que o benchmarking influenciaria decisões futuras de redução de custo e 75% quiseram acompanhar metas depois de ver a projeção financeira. A conversa mudou de \"preciso ser mais sustentável\" para \"posso reduzir custos e ganhar vantagem competitiva\"."),
         p("Durante os testes, percebi que as certificações eram pouco exploradas. Reposicionei a seção destacando os benefícios práticos e financeiros, e o engajamento com ela subiu nas sessões seguintes."),
-        img("Teste exploratório"),
+        et("teste-exploratorio.webp", "Resultados do teste com o protótipo interativo: 60%, 75% e 70%"),
       ],
     },
     {
@@ -153,6 +159,7 @@ export const ecotrack: SimpleCaseData = {
           "**Dado sem consequência não move empresário.** Só quando coloquei comparação setorial e projeção de economia na mesma tela o dado passou a gerar decisão.",
           "**Certificações eram o diferencial que subestimei.** Apareceram como dor secundária na pesquisa e viraram a feature de maior engajamento nos testes. Com mais tempo de discovery, teria investigado esse tema antes de fechar a arquitetura.",
         ),
+        et("aprendizados.webp", "Os três aprendizados do EcoTrack"),
       ],
     },
   ],
