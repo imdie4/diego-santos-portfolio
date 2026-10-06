@@ -4,10 +4,28 @@ import { LanguageProvider } from "@/lib/i18n";
 import { Header } from "@/components/Header";
 import "./globals.css";
 
+const SITE_URL = "https://diegosantosprotfolio.vercel.app";
+const DESCRIPTION =
+  "Portfólio de Diego Santos, designer de produto: criando produtos digitais a partir de problemas e pessoas reais.";
+
 export const metadata: Metadata = {
-  title: "Diego Santos — Product Designer",
-  description:
-    "Portfólio de Diego Santos: criando produtos digitais a partir de problemas e pessoas reais.",
+  // absolute base for the share image (app/opengraph-image.png)
+  metadataBase: new URL(SITE_URL),
+  title: "Diego Santos - Portfolio",
+  description: DESCRIPTION,
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: "Diego Santos - Portfolio",
+    title: "Diego Santos - Portfolio",
+    description: DESCRIPTION,
+    locale: "pt_BR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Diego Santos - Portfolio",
+    description: DESCRIPTION,
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
