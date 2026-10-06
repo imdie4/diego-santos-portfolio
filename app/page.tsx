@@ -12,6 +12,90 @@ import { BehanceLogo, ClaudeLogo, FigmaLogo, LinkedInLogo } from "@/components/l
 export default function HomePage() {
   const { t } = useLang();
 
+  // Hero stickers: content, comment and (on wide screens) position.
+  const stickers = [
+    {
+      name: "behance",
+      delay: 450,
+      comment: t.hero.stickers.behance,
+      href: "https://www.behance.net/imdi_e",
+      pos: "left-[7%] top-[12%]",
+      node: <BehanceLogo />,
+    },
+    {
+      name: "linkedin",
+      delay: 690,
+      comment: t.hero.stickers.linkedin,
+      href: "https://www.linkedin.com/in/diegoferrsantos",
+      pos: "right-[7%] top-[56%]",
+      node: <LinkedInLogo />,
+    },
+    {
+      name: "figma",
+      delay: 770,
+      comment: t.hero.stickers.figma,
+      pos: "left-[20%] top-[74%]",
+      node: <FigmaLogo />,
+    },
+    {
+      name: "claude",
+      delay: 930,
+      comment: t.hero.stickers.claude,
+      pos: "right-[22%] top-[74%]",
+      node: <ClaudeLogo />,
+    },
+    {
+      name: "apple-park.jpg",
+      delay: 530,
+      comment: t.hero.stickers.applePark,
+      pos: "right-[3%] top-[10%]",
+      node: (
+        <div
+          className="aspect-[3/4] w-44 bg-no-repeat shadow-lg"
+          style={{
+            backgroundImage: "url(/img/rainbow.jpeg)",
+            backgroundSize: "148%",
+            backgroundPosition: "50% 32%",
+          }}
+        />
+      ),
+    },
+    {
+      name: "wwdc25.jpg",
+      delay: 610,
+      comment: t.hero.stickers.wwdc,
+      pos: "left-[5%] top-[44%]",
+      node: (
+        <div
+          className="aspect-[3/4] w-36 bg-no-repeat shadow-lg"
+          style={{
+            backgroundImage: "url(/img/wwdc-badge.jpeg)",
+            backgroundSize: "235%",
+            backgroundPosition: "48% 60%",
+          }}
+        />
+      ),
+    },
+    {
+      name: "swift-winner.jpg",
+      delay: 850,
+      comment: t.hero.stickers.swift,
+      pos: "left-[41%] top-[70%]",
+      node: (
+        <div className="w-40 shadow-lg">
+          <Image
+            src="/img/swift-winner.jpeg"
+            alt="Swift Student Challenge Winner"
+            width={160}
+            height={160}
+            draggable={false}
+            className="h-auto w-full"
+          />
+        </div>
+      ),
+    },
+  ];
+
   return (
     <>
       <section
@@ -45,93 +129,35 @@ export default function HomePage() {
           </EditableText>
         </div>
 
-        <Sticker
-          name="behance"
-          delay={450}
-          comment={t.hero.stickers.behance}
-          href="https://www.behance.net/imdi_e"
-          className="left-[7%] top-[12%]"
-        >
-          <BehanceLogo />
-        </Sticker>
+        {/* Wide screens (≥1280px): stickers scattered around the text and
+            draggable. Narrower: the same stickers in a row under the text,
+            so they never cover it. */}
+        {stickers.map((st) => (
+          <Sticker
+            key={st.name}
+            name={st.name}
+            delay={st.delay}
+            comment={st.comment}
+            href={st.href}
+            className={`hidden xl:block ${st.pos}`}
+          >
+            {st.node}
+          </Sticker>
+        ))}
 
-        <Sticker
-          name="figma"
-          delay={770}
-          comment={t.hero.stickers.figma}
-          className="left-[20%] top-[74%]"
-        >
-          <FigmaLogo />
-        </Sticker>
-
-        <Sticker
-          name="linkedin"
-          delay={690}
-          comment={t.hero.stickers.linkedin}
-          href="https://www.linkedin.com/in/diegoferrsantos"
-          className="right-[7%] top-[56%]"
-        >
-          <LinkedInLogo />
-        </Sticker>
-
-        <Sticker
-          name="apple-park.jpg"
-          delay={530}
-          comment={t.hero.stickers.applePark}
-          className="right-[6%] top-[10%]"
-        >
-          <div
-            className="aspect-[3/4] w-44 bg-no-repeat shadow-lg"
-            style={{
-              backgroundImage: "url(/img/rainbow.jpeg)",
-              backgroundSize: "148%",
-              backgroundPosition: "50% 32%",
-            }}
-          />
-        </Sticker>
-
-        <Sticker
-          name="wwdc25.jpg"
-          delay={610}
-          comment={t.hero.stickers.wwdc}
-          className="left-[5%] top-[44%]"
-        >
-          <div
-            className="aspect-[3/4] w-36 bg-no-repeat shadow-lg"
-            style={{
-              backgroundImage: "url(/img/wwdc-badge.jpeg)",
-              backgroundSize: "235%",
-              backgroundPosition: "48% 60%",
-            }}
-          />
-        </Sticker>
-
-        <Sticker
-          name="claude"
-          delay={930}
-          comment={t.hero.stickers.claude}
-          className="right-[22%] top-[74%]"
-        >
-          <ClaudeLogo />
-        </Sticker>
-
-        <Sticker
-          name="swift-winner.jpg"
-          delay={850}
-          comment={t.hero.stickers.swift}
-          className="left-[41%] top-[70%]"
-        >
-          <div className="w-40 shadow-lg">
-            <Image
-              src="/img/swift-winner.jpeg"
-              alt="Swift Student Challenge Winner"
-              width={160}
-              height={160}
-              draggable={false}
-              className="h-auto w-full"
-            />
-          </div>
-        </Sticker>
+        <ul className="hero-rise mx-auto mt-12 flex max-w-3xl flex-wrap items-center justify-center gap-x-6 gap-y-5 pb-16 [--delay:400ms] xl:hidden">
+          {stickers.map((st) => (
+            <li key={st.name} style={{ zoom: 0.55 }}>
+              {st.href ? (
+                <a href={st.href} target="_blank" rel="noreferrer" aria-label={st.name}>
+                  {st.node}
+                </a>
+              ) : (
+                st.node
+              )}
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* Stacked above the hero (z-0) so a sticker dragged out of it slides

@@ -28,6 +28,7 @@ const COLORS = [
   { key: "blue", value: "#0D99FF" },
   { key: "purple", value: "#A259FF" },
   { key: "red", value: "#F24E1E" },
+  { key: "white", value: "#FFFFFF" },
 ] as const;
 
 const HANDLE =

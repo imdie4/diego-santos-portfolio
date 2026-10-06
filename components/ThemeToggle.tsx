@@ -59,13 +59,14 @@ export function ThemeToggle() {
     <div
       role="radiogroup"
       aria-label={t.theme.label}
-      className="flex h-14 w-[200px] items-center justify-center gap-1 rounded-2xl bg-surface px-1.5 shadow-panel"
+      className="flex h-14 items-center justify-center gap-1 rounded-2xl bg-surface px-1.5 shadow-panel lg:w-[200px]"
     >
       {options.map(({ id, label, Icon }) => (
         <button
           key={id}
           type="button"
           role="radio"
+          aria-label={label}
           aria-checked={theme === id}
           onClick={() => choose(id)}
           className={`flex items-center gap-1.5 rounded-xl px-3.5 py-2.5 text-sm font-semibold transition-colors ${
@@ -75,7 +76,7 @@ export function ThemeToggle() {
           }`}
         >
           <Icon />
-          {label}
+          <span className="hidden lg:inline">{label}</span>
         </button>
       ))}
     </div>

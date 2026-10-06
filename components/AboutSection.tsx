@@ -24,6 +24,7 @@ const TOOLS = [
   { name: "Maze", logo: "/logos/tools/maze.svg", invertInDark: true },
   { name: "Jira", logo: "/logos/tools/jira.svg" },
   { name: "Adobe Creative Suite", logo: "/logos/tools/adobe.svg" },
+  { name: "Claude", logo: "/logos/claude.svg" },
 ];
 
 // The button's `shadow-panel` (1px hairline + soft blur), as a drop-shadow so it

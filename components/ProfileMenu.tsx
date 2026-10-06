@@ -71,7 +71,8 @@ export function ProfileMenu() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="flex h-14 w-[200px] items-center gap-3 rounded-2xl bg-surface px-4 shadow-panel transition-colors hover:bg-neutral-50"
+        aria-label="Diego Santos"
+        className="flex h-14 items-center gap-3 rounded-2xl bg-surface px-3 shadow-panel transition-colors hover:bg-neutral-50 lg:w-[200px] lg:px-4"
       >
         <span
           role="img"
@@ -83,7 +84,7 @@ export function ProfileMenu() {
             backgroundPosition: "50% 52%",
           }}
         />
-        <span className="text-[15px] font-semibold">Diego Santos</span>
+        <span className="hidden text-[15px] font-semibold lg:inline">Diego Santos</span>
         <svg
           viewBox="0 0 12 12"
           className={`h-3 w-3 text-neutral-500 transition-transform ${open ? "rotate-180" : ""}`}

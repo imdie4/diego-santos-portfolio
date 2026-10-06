@@ -66,10 +66,12 @@ export function Header() {
       : null;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between p-6">
+    <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between p-4 md:p-6">
       <ProfileMenu />
 
-      <nav className="absolute left-1/2 top-1/2 flex h-14 -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-2xl bg-surface px-1.5 shadow-panel">
+      {/* Phones: the navigation becomes a Figma-style toolbar at the bottom of
+          the screen (icons only under 640px). From 768px it sits in the top bar. */}
+      <nav className="fixed bottom-4 left-1/2 flex h-14 -translate-x-1/2 items-center gap-1 rounded-2xl bg-surface px-1.5 shadow-panel md:absolute md:bottom-auto md:top-1/2 md:-translate-y-1/2">
         {sectionIds.map((id) => {
           const Icon = toolIcons[id];
           const isActive = activeId === id;
@@ -78,14 +80,15 @@ export function Header() {
               key={id}
               href={id === "inicio" ? "/" : `/#${id}`}
               onClick={() => setActive(id)}
-              className={`flex items-center gap-2 rounded-xl px-3.5 py-2 text-[15px] transition-colors ${
+              aria-label={t.nav[id]}
+              className={`flex items-center gap-2 rounded-xl px-3.5 py-2.5 text-[15px] transition-colors sm:py-2 ${
                 isActive
                   ? "bg-figma-blue font-semibold text-white"
                   : "text-neutral-700 hover:bg-neutral-100"
               }`}
             >
               <Icon className="h-[18px] w-[18px]" />
-              {t.nav[id]}
+              <span className="hidden sm:inline">{t.nav[id]}</span>
             </a>
           );
         })}

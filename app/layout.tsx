@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <LanguageProvider>
           <Header />
-          <main className="min-h-screen overflow-x-clip pt-32">{children}</main>
+          <main className="min-h-screen overflow-x-clip pb-24 pt-28 md:pb-0 md:pt-32">{children}</main>
         </LanguageProvider>
       </body>
     </html>
