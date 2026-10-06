@@ -321,7 +321,133 @@ export const chegaJunto: SimpleCaseData = {
   ],
 };
 
+const LI = "/img/cases/lino";
+/** Lino images: all exported at 1880×960. */
+const li = (file: string, alt: string): ContentBlock => ({
+  type: "img",
+  image: { src: `${LI}/${file}`, alt, width: 1880, height: 960 },
+});
+
+export const lino: SimpleCaseData = {
+  slug: "lino",
+  accent: "#3366E4",
+  subtitle:
+    "Redesenho gamificado reduziu o abandono do treino fonoaudiológico, elevando a conclusão em 42%.",
+  meta: [
+    { label: "Papel", value: "Product Designer" },
+    { label: "Duração", value: "8 semanas" },
+    { label: "Cliente", value: "Apple Developer Academy" },
+    { label: "Categoria", value: "UX/UI Mobile" },
+  ],
+  cover: { src: "/img/projects/lino.png", alt: "Telas do Lino", width: 1600, height: 800 },
+  overview: {
+    problem: [
+      "A terapia fonoaudiológica infantil depende de repetição constante. As crianças se desmotivam com ela, e pais e terapeutas não conseguem acompanhar o progresso fora do consultório.",
+    ],
+    solution:
+      "Um app gamificado que torna a terapia mais envolvente para a criança e acompanhável para pais e terapeutas.",
+    impact: [
+      { value: "+42%", label: "de atividades\nconcluídas" },
+      { value: "+38%", label: "de frequência\nsemanal" },
+    ],
+  },
+  sections: [
+    {
+      id: "sec-processo",
+      toc: "Processo",
+      title: "Processo de Design",
+      blocks: [
+        p("Conduzi o projeto de forma iterativa, em descoberta, definição, ideação e prototipação. Como líder de design, priorizei validar o comportamento dos usuários antes de aprofundar a interface, para não investir em solução visual que não resolvesse o problema central."),
+        li("processo-cbl.png", "Cronograma do projeto com Challenge Based Learning: Engage, Investigate e Act"),
+      ],
+    },
+    {
+      id: "sec-pesquisa",
+      toc: "Pesquisa",
+      title: "Causas e oportunidades",
+      blocks: [
+        p("Entrevistei crianças, responsáveis e fonoaudiólogos e encontrei três dores conectadas: a repetição cansa e derruba o engajamento, os responsáveis não enxergam a evolução e os terapeutas perdem visibilidade da prática em casa. Ao cruzar as três, percebi que o problema não era falta de exercício, era a forma como a repetição era vivida. A decisão central foi transformar repetição em progresso percebido, atuando no momento de maior abandono."),
+        li("pesquisa-campo.png", "Pesquisa na Comunidade Beira Rio / Várzea: entrevistados, números e falas"),
+        li("falas-fonoaudiologos.png", "Falas de fonoaudiólogos sobre a rotina de exercícios"),
+      ],
+    },
+    {
+      id: "sec-publico",
+      toc: "Persona",
+      title: "Definição de Público e Comportamento",
+      blocks: [
+        p("Modelei dois perfis. A criança responde a estímulo, recompensa e variação. O responsável busca clareza e segurança para saber se a prática funciona. Ao mapear a jornada, vi que a quebra de engajamento acontece durante a repetição, então priorizei esse momento em vez de expandir para funcionalidades paralelas."),
+        li("personas-mapa-empatia.png", "Personas Ana Paula Oliveira e Lucas Oliveira, com mapa de empatia"),
+        li("jornada.png", "Jornada da prática: descoberta, prática, progresso e avaliação"),
+      ],
+    },
+    {
+      id: "sec-arquitetura",
+      toc: "Arquitetura",
+      title: "Arquitetura da Solução",
+      blocks: [
+        p("Dividi o produto em dois núcleos: Prática, com exercícios, missão diária e medalhas para a criança, e Jornada, com progressão e acompanhamento para o responsável. Foi uma decisão consciente para separar ação de acompanhamento, reduzir a carga cognitiva e permitir evoluir o produto sem aumentar a complexidade."),
+        li("arquitetura.png", "Arquitetura do Lino, com os núcleos Home e Jornada"),
+      ],
+    },
+    {
+      id: "sec-wireframes",
+      toc: "Wireframes",
+      title: "Wireframing",
+      blocks: [
+        p("Usei wireframes para validar estrutura e fluxo antes da interface final. Dois problemas apareceram: o feedback de recompensa precisava ser imediato dentro da atividade, não no fim, e o dashboard da Jornada tinha informação demais. Simplifiquei para os dois indicadores mais acionáveis."),
+        li("wireframes.webp", "Wireframes das telas de Home, Medalhas, Missão Diária e atividade"),
+      ],
+    },
+    {
+      id: "sec-visual",
+      toc: "Visual",
+      title: "Sistema visual",
+      blocks: [
+        p("Escolhi a SF Pro Rounded pela leveza e consistência com as HIG da Apple. Defini quatro cores com papel fixo: azul para atividades e acompanhamento, laranja para conquistas, rosa para a missão diária e verde para as áreas de suporte. A criança deveria identificar o contexto pela cor antes de ler qualquer texto."),
+        li("tipografia-sf-pro-rounded.png", "Tipografia SF Pro Rounded e escala tipográfica"),
+        li("cores-icones.png", "Paleta de cores e ícones"),
+        li("componentes.png", "Componentes da interface"),
+      ],
+    },
+    {
+      id: "sec-prototipo",
+      toc: "Protótipo",
+      title: "Protótipo de Alta Fidelidade",
+      blocks: [
+        p("Cada tela responde a uma oportunidade da pesquisa. Na Home, missão diária, streak semanal e medalhas tornam a repetição progresso visível. Em Atividades, pontuação em tempo real, instrução ilustrada e palavras reais com imagem e áudio de referência transformam o exercício em jogo. O feedback aparece só nos acertos: se a criança erra, a atividade segue sem interrupção e o resultado completo vem no final. Na Jornada, relatório exportável, calendário de prática com os dias treinados, média de acertos e histórico transformam o acompanhamento informal em dado estruturado."),
+        li("prototipo-home-missao-medalhas.webp", "Protótipo das telas de Missão Diária, Home e Medalhas"),
+        li("prototipo-jornada-progresso.webp", "Protótipo das telas de Jornada e Progresso"),
+      ],
+    },
+    {
+      id: "sec-resultados",
+      toc: "Resultados",
+      title: "Resultados e Validação",
+      blocks: [
+        p("Testei por 3 semanas com 6 crianças, 5 responsáveis e 3 fonoaudiólogas, amostra pequena que indica direção mais do que conclusão. Observei as mesmas crianças com o método tradicional e depois com o Lino, nas mesmas condições em casa. A conclusão de atividades subiu 42%, a frequência semanal 38% e o tempo médio por sessão 31%."),
+        p("O principal aprendizado foi o mecanismo por trás dos números: ver pontos e estrelas acumulando em tempo real reduzia a resistência à repetição. Aprender a articular um fonema não tem feedback imediato, e o design precisava criar esse feedback."),
+        li("resultados.png", "Resultados do teste de 3 semanas: +42%, +38%, 87% e +31%"),
+      ],
+    },
+    {
+      id: "sec-aprendizados",
+      toc: "Aprendizados",
+      title: "Aprendizados que o Lino me trouxe",
+      blocks: [
+        list(
+          "**Teria testado com crianças mais cedo.** Validei wireframes com adultos e só vi o problema no protótipo final: adultos subestimam a impaciência infantil com fluxos longos.",
+          "**A separação de fluxos foi a decisão mais impactante,** e só foi possível porque as personas foram mapeadas a fundo antes de qualquer decisão de arquitetura.",
+          "**Retenção ficou sem resposta.** Os testes mediram engajamento dentro da sessão, não retenção, então D1 e D7 seriam as métricas prioritárias. Também priorizaria um alerta proativo ao responsável, que hoje só percebe uma falta de prática ao abrir a Jornada por conta própria.",
+        ),
+        li("aprendizados.png", "Os três aprendizados do Lino"),
+      ],
+    },
+  ],
+};
+
 export const simpleCases: Record<string, SimpleCaseData> = {
+  lino,
   ecotrack,
   "chega-junto": chegaJunto,
 };
